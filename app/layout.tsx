@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import React from "react";
 import { Open_Sans } from "next/font/google";
 import { MouseEventHandler, useState } from "react";
 
