@@ -30,6 +30,10 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <title>Công ty Viễn Đông</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
+        <meta charSet="UTF-8" />
+        <meta name="keywords" content="Vien Dong, Viễn Đông, viendongcentral, Vien Dong Central" />
+        <meta name="description" content="Công ty Cổ phần Viễn Đông Central" />
+        <meta name="author" content="Nguyen Huy Liem" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
       <body className={font.className}>
