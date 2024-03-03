@@ -36,7 +36,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           <div id="main-grid-item-l">
             <img
               className="logo"
-              src="/static/images/logo.png"
+              src="/static/images/viendong_logo.jpg"
             />
           </div>
           <div id="main-grid-item-n">
