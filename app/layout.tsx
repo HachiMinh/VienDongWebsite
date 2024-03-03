@@ -28,6 +28,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="en">
       <head>
         <title>Công ty Viễn Đông</title>
+        <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
