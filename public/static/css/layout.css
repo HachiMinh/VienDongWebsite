@@ -18,8 +18,9 @@ div#main-grid {
         "l"
         "n"
         "b"
-        "m";
-    min-height: 100%;
+        "m"
+        "f";
+    min-height: 100vh;
 }
 
 [id^="main-grid-item-"] {
@@ -80,13 +81,24 @@ div#main-grid {
     text-decoration: none;
 }
 
+#main-grid-item-f {
+    background-color: #0a1524;
+    color: white;
+    font-size: 0.75rem;
+    grid-area: f;
+    margin-top: 20px;
+    padding: 5px;
+    text-align: left;
+}
+
 @media screen and (min-width: 768px) {
     div#main-grid {
         grid-template-columns: repeat(6, 1fr);
         grid-template-areas:
             "l l n n n n"
             "b b m m m m"
-            "b b m m m m";
+            "b b m m m m"
+            "f f f f f f";
     }
 
     #main-grid-item-b #buttons-row-hidden-on-desktop {
@@ -95,5 +107,9 @@ div#main-grid {
 
     #main-grid-item-b #hidden-menu-on-mobile {
         display: block;
+    }
+
+    #main-grid-item-f {
+        text-align: center;
     }
 }

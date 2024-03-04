@@ -68,6 +68,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
                 : children
             }
           </div>
+          <div id="main-grid-item-f">
+            <p>Giám đốc: Nguyễn Huy Liêm © 2021-2024 Công ty Cổ phần Viễn Đông Central</p>
+            <p>
+              Địa chỉ: Tầng 10, Tòa Nhà Sông Đà 9, Đường Nguyễn Hoàng, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam
+              - SĐT 0862590591 - MST 0109495463
+            </p>
+          </div>
         </div>
       </body>
     </html >
