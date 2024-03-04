@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import React from "react";
-import { Open_Sans } from "next/font/google";
 import { MouseEventHandler, useState } from "react";
+import { Open_Sans } from "next/font/google";
 
 import "@/public/static/css/layout.css";
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   return (
     <html lang="en">
       <head>
-        <title>Công ty Viễn Đông</title>
+        <title>Trang chủ | Công ty Viễn Đông</title>
         <link rel="icon" type="image/x-icon" href="favicon.ico?v=2" />
         <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"></link>
         <meta charSet="UTF-8" />
