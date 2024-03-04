@@ -6,6 +6,11 @@ body {
     margin: 0;
 }
 
+body.dark {
+    background-color: black;
+    color: white;
+}
+
 .material-icons {
     cursor: default;
 }
@@ -41,7 +46,6 @@ div#main-grid {
 }
 
 #main-grid-item-n {
-    background-color: white;
     grid-area: n;
     text-align: center;
 }
@@ -50,19 +54,27 @@ div#main-grid {
     grid-area: b;
 }
 
-#main-grid-item-b #buttons-row-hidden-on-desktop {
+#main-grid-item-b #buttons-row {
     background-color: yellow;
     display: block;
-    height: 60px;
+    height: 50px;
     padding: 10px;
 }
 
-#main-grid-item-b #buttons-row-hidden-on-desktop .material-icons {
+#main-grid-item-b #buttons-row .material-icons {
     cursor: pointer;
-    font-size: 40px;
+    font-size: 30px;
 }
 
-#main-grid-item-b #buttons-row-hidden-on-desktop .material-icons.settings {
+body.dark #main-grid-item-b #buttons-row .material-icons {
+    color: black;
+}
+
+#main-grid-item-b #buttons-row .material-icons.left {
+    float: left;
+}
+
+#main-grid-item-b #buttons-row .material-icons.right {
     float: right;
 }
 
@@ -80,6 +92,10 @@ div#main-grid {
     text-decoration: none;
 }
 
+body.dark .nav-menu a {
+    color: yellow;
+}
+
 @media screen and (min-width: 768px) {
     div#main-grid {
         grid-template-columns: repeat(6, 1fr);
@@ -87,10 +103,6 @@ div#main-grid {
             "l l n n n n"
             "b b m m m m"
             "b b m m m m";
-    }
-
-    #main-grid-item-b #buttons-row-hidden-on-desktop {
-        display: none;
     }
 
     #main-grid-item-b #hidden-menu-on-mobile {

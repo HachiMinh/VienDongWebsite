@@ -23,6 +23,7 @@ function Menu({ onItemClick }: Readonly<{ onItemClick: MouseEventHandler<HTMLSpa
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): JSX.Element {
   const [displayMenu, setDisplayMenu] = useState(false);
+  const [darkMode, setDarkMode] = useState(false);
 
   return (
     <html lang="en">
@@ -36,10 +37,11 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="author" content="Nguyen Huy Liem" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
-      <body className={font.className}>
+      <body className={`${font.className} ${darkMode ? "dark" : "light"}`}>
         <div id="main-grid">
           <div id="main-grid-item-l">
             <img
+              alt="logo"
               className="logo"
               src="/static/images/viendong_logo.jpg"
             />
@@ -49,13 +51,17 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <h3>Giám đốc Nguyễn Huy Liêm</h3>
           </div>
           <div id="main-grid-item-b">
-            <div id="buttons-row-hidden-on-desktop">
+            <div id="buttons-row">
               {
                 displayMenu
-                  ? <span className="material-icons" onClick={() => setDisplayMenu(false)}>cancel</span>
-                  : <span className="material-icons" onClick={() => setDisplayMenu(true)}>menu</span>
+                  ? <span className="material-icons left" onClick={() => setDisplayMenu(false)}>cancel</span>
+                  : <span className="material-icons left" onClick={() => setDisplayMenu(true)}>menu</span>
               }
-              <span className="material-icons settings">settings</span>
+              {
+                darkMode
+                  ? <span className="material-icons right" onClick={() => setDarkMode(false)}>light_mode</span>
+                  : <span className="material-icons right" onClick={() => setDarkMode(true)}>dark_mode</span>
+              }
             </div>
             <div id="hidden-menu-on-mobile">
               <Menu onItemClick={() => setDisplayMenu(false)} />
