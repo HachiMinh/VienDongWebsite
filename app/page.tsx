@@ -12,10 +12,11 @@ export default function Home(): JSX.Element {
   return (
     <div id="home">
       <div className="floating-text">
-        <h1>Placeholder text...</h1>
+        <h1>Công ty Viễn Đông</h1>
+        <h2>Placeholder h2 title...</h2>
       </div>
       <div className="floating-image">
-        <img alt="" src="https://images01.nicepage.com/c461c07a441a5d220e8feb1a/daf11e841a355a75ad183ee4/gfgggggg-min.jpg" />
+        <img alt="" src="/static/images/home_placeholder.png" />
       </div>
       <div className="grid-sections">
         <div className="sections">

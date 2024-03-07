@@ -1,20 +1,19 @@
 #home .floating-text {
-    background-color: darkblue;
+    background-color: #2F3C7E;
     color: white;
-    height: 45vh;
-    left: 17vw;
+    left: 15vw;
     max-height: 450px;
     max-width: 500px;
     padding: 30px 20px;
     position: relative;
-    top: 10vh;
+    top: 5vh;
     width: 65vw;
     z-index: 100;
 }
 
 #home .floating-text h1 {
-    font-size: 3.75rem;
-    font-weight: 400;
+    color: #FBEAEB;
+    font-weight: bold;
     margin: 0;
 }
 
@@ -35,7 +34,6 @@
     background-color: pink;
     height: 75vw;
     position: relative;
-    width: 100vw;
     top: -40px;
 }
 
@@ -109,6 +107,7 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-template-rows: minmax(0, 1fr);
         height: 20vw;
+        left: 10vw;
 
         /* written for clarity */
         width: calc(20vw * 4);

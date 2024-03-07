@@ -2,13 +2,13 @@
 
 import Link from "next/link";
 import React from "react";
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { Open_Sans } from "next/font/google";
 
 import "@/public/static/css/layout.css";
 
 const font = Open_Sans({ subsets: ["vietnamese"], weight: "400" });
-const titles = ["Home", "Section A", "Section B"];
+const titles = ["Trang chủ", "Section A", "Section B"];
 const hrefs = ["/", "/a", "/b"];
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): JSX.Element {
@@ -27,22 +27,22 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={font.className}>
         <header id="main-header">
+          <div className="header-menu">
+            <span className="material-icons" onClick={() => setOpenMenu(!openMenu)}>menu</span>
+          </div>
           <Link className="header-signature" href="/">
             <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
             <div className="company-name">
               <h1>Công ty Viễn Đông</h1>
             </div>
           </Link>
-          <div className="header-menu">
-            <span className="material-icons" onClick={() => setOpenMenu(!openMenu)}>menu</span>
-          </div>
         </header>
         <div id="navigator-flex" style={{ display: openMenu ? "block" : "none" }}>
           <div id="side-navigator">
             <div className="close-menu">
               <span className="material-icons" onClick={() => setOpenMenu(false)}>close</span>
             </div>
-            <h3>Navigator</h3>
+            <h3>Mục lục</h3>
             {
               titles.map(
                 (title, index) => (

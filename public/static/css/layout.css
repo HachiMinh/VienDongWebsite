@@ -12,21 +12,17 @@ body {
 
 #main-header {
     height: 80px;
-    padding-left: 50px;
-    padding-right: 50px;
-    padding-top: 5px;
-    width: 100vw;
-    z-index: 900;
+    padding: 5px;
 }
 
+/* having no idea how this works? see https://stackoverflow.com/a/1767270 */
 #main-header a.header-signature {
     color: black;
     display: flex;
-    float: left;
     flex-direction: row;
     height: 100%;
+    overflow: hidden;
     text-decoration: none;
-    width: calc(100vw - 100px - 80px);
 }
 
 #main-header a.header-signature img.logo {
@@ -49,11 +45,11 @@ body {
 
 #main-header div.header-menu {
     float: right;
-    font-size: 2em;
     height: 100%;
+    /* 70px */
+    line-height: 70px;
     padding: 10px;
     text-align: center;
-    width: 80px;
 }
 
 #main-header div.header-menu .material-icons {
@@ -101,7 +97,7 @@ body {
     opacity: 0.5;
     position: fixed;
     top: 0;
-    width: 100vw;
+    width: calc(100vw - 20px);
     z-index: 999;
 }
 
@@ -112,4 +108,22 @@ body {
     margin-top: 20px;
     padding: 5px;
     text-align: left;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2,
+    h3 {
+        font-size: 1em;
+    }
+}
+
+@media screen and (min-width: 768px) {
+    #main-header {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
 }
