@@ -34,7 +34,6 @@
     background-color: pink;
     height: 75vw;
     position: relative;
-    width: calc(100vw - 20px);
     top: -40px;
 }
 
@@ -108,6 +107,7 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-template-rows: minmax(0, 1fr);
         height: 20vw;
+        left: 10vw;
 
         /* written for clarity */
         width: calc(20vw * 4);
