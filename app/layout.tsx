@@ -27,15 +27,15 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className={font.className}>
         <header id="main-header">
+          <div className="header-menu">
+            <span className="material-icons" onClick={() => setOpenMenu(!openMenu)}>menu</span>
+          </div>
           <Link className="header-signature" href="/">
             <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
             <div className="company-name">
               <h1>Công ty Viễn Đông</h1>
             </div>
           </Link>
-          <div className="header-menu">
-            <span className="material-icons" onClick={() => setOpenMenu(!openMenu)}>menu</span>
-          </div>
         </header>
         <div id="navigator-flex" style={{ display: openMenu ? "block" : "none" }}>
           <div id="side-navigator">

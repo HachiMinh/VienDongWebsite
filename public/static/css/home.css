@@ -1,12 +1,12 @@
 #home .floating-text {
     background-color: #2F3C7E;
     color: white;
-    left: 17vw;
+    left: 15vw;
     max-height: 450px;
     max-width: 500px;
     padding: 30px 20px;
     position: relative;
-    top: 10vh;
+    top: 5vh;
     width: 65vw;
     z-index: 100;
 }
