@@ -12,8 +12,8 @@ export default function Home(): JSX.Element {
   return (
     <div id="home">
       <div className="floating-text">
-        <h1>Công ty Viễn Đông</h1>
-        <h2>Placeholder h2 title...</h2>
+        <h1>Công ty Cổ phần Viễn Đông Central</h1>
+        <h2>VIEN DONG CENTRAL.,JSC</h2>
       </div>
       <div className="floating-image">
         <img alt="" src="/static/images/home_placeholder.png" />
