@@ -62,16 +62,14 @@
     height: 40%;
     padding: 10px;
     width: 100%;
+
+    /* Supports inner Google materials */
+    text-align: center;
+    color: pink;
 }
 
-#home .grid-sections .sections [class^="section-"] .upper img {
-    /* Currently using company logo as a placeholder, should 
-    change it to another image (or svg, whatever) */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    max-height: 100%;
-    max-width: 100%;
+#home .grid-sections .sections [class^="section-"] .upper span.material-icons {
+    font-size: 50px;
 }
 
 #home .grid-sections .sections [class^="section-"] .lower {
@@ -112,5 +110,9 @@
 
         /* written for clarity */
         width: calc(20vw * 4);
+    }
+
+    #home .grid-sections .sections [class^="section-"] .upper span.material-icons {
+        font-size: 100px;
     }
 }
