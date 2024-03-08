@@ -52,10 +52,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </div>
         {children}
         <div id="copyright-footer">
-          <p>Giám đốc: Nguyễn Huy Liêm © 2021-2024 Công ty Cổ phần Viễn Đông Central</p>
+          <p>© 2021-2024 Công ty Cổ phần Viễn Đông Central</p>
+          <p>Giám đốc: Nguyễn Huy Liêm</p>
+          <p>SĐT: 0862590591</p>
+          <p>MST: 0109495463</p>
           <p>
             Địa chỉ: Tầng 10, Tòa Nhà Sông Đà 9, Đường Nguyễn Hoàng, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam
-            - SĐT 0862590591 - MST 0109495463
           </p>
         </div>
       </body>

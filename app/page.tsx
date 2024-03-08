@@ -49,7 +49,7 @@ export default function Home(): JSX.Element {
               <img alt="" src="/static/images/viendong_logo.jpg" />
             </div>
             <div className="lower">
-              <p>Section D</p>
+              <p>Về chúng tôi</p>
             </div>
           </div>
         </div>
