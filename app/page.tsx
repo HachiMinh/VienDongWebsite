@@ -22,7 +22,7 @@ export default function Home(): JSX.Element {
         <div className="sections">
           <div className="section-a">
             <div className="upper">
-              <img alt="" src="/static/images/viendong_logo.jpg" />
+              <span className="material-icons">flight</span>
             </div>
             <div className="lower">
               <p>Du lịch</p>
@@ -30,7 +30,7 @@ export default function Home(): JSX.Element {
           </div>
           <div className="section-b">
             <div className="upper">
-              <img alt="" src="/static/images/viendong_logo.jpg" />
+              <span className="material-icons">construction</span>
             </div>
             <div className="lower">
               <p>Xây dựng</p>
@@ -38,7 +38,7 @@ export default function Home(): JSX.Element {
           </div>
           <div className="section-c">
             <div className="upper">
-              <img alt="" src="/static/images/viendong_logo.jpg" />
+              <span className="material-icons">shopping_bag</span>
             </div>
             <div className="lower">
               <p>Thương mại</p>
@@ -46,7 +46,7 @@ export default function Home(): JSX.Element {
           </div>
           <div className="section-d">
             <div className="upper">
-              <img alt="" src="/static/images/viendong_logo.jpg" />
+              <span className="material-icons">info</span>
             </div>
             <div className="lower">
               <p>Về chúng tôi</p>
