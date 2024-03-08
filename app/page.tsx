@@ -25,6 +25,7 @@ export default function Home(): JSX.Element {
             <div className="lower">
               <p>Du lịch</p>
             </div>
+          </div>
           <div className="section-b">
             <div className="upper">
               <img alt="" src="/static/images/viendong_logo.jpg" />
