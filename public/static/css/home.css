@@ -1,0 +1,116 @@
+#home .floating-text {
+    background-color: #2F3C7E;
+    color: white;
+    left: 15vw;
+    max-height: 450px;
+    max-width: 500px;
+    padding: 30px 20px;
+    position: relative;
+    top: 5vh;
+    width: 65vw;
+    z-index: 100;
+}
+
+#home .floating-text h1 {
+    color: #FBEAEB;
+    font-weight: bold;
+    margin: 0;
+}
+
+#home .floating-image {
+    max-height: 1000px;
+    position: relative;
+    max-width: 70vw;
+    left: 20vw;
+    z-index: 50;
+}
+
+#home .floating-image img {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#home .grid-sections {
+    background-color: pink;
+    height: 75vw;
+    position: relative;
+    top: -40px;
+}
+
+#home .grid-sections .sections {
+    display: grid;
+    grid-template-areas:
+        "a b"
+        "c d";
+    /* https://stackoverflow.com/a/61240964 */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    height: 70vw;
+    left: 15vw;
+    position: relative;
+    top: 10px;
+    width: 70vw;
+}
+
+#home .grid-sections .sections [class^="section-"] {
+    background-color: white;
+    margin: 5px;
+    z-index: 100;
+}
+
+#home .grid-sections .sections [class^="section-"] .upper {
+    height: 40%;
+    padding: 10px;
+    width: 100%;
+}
+
+#home .grid-sections .sections [class^="section-"] .upper img {
+    /* Currently using company logo as a placeholder, should 
+    change it to another image (or svg, whatever) */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    max-height: 100%;
+    max-width: 100%;
+}
+
+#home .grid-sections .sections [class^="section-"] .lower {
+    height: 60%;
+    padding: 10px;
+    width: 100%;
+    text-align: center;
+}
+
+#home .grid-sections .sections .section-a {
+    grid-area: a;
+}
+
+#home .grid-sections .sections .section-b {
+    grid-area: b;
+}
+
+#home .grid-sections .sections .section-c {
+    grid-area: c;
+}
+
+#home .grid-sections .sections .section-d {
+    grid-area: d;
+}
+
+@media screen and (min-width: 768px) {
+    #home .grid-sections {
+        height: 30vw;
+    }
+
+    #home .grid-sections .sections {
+        grid-template-areas:
+            "a b c d";
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        grid-template-rows: minmax(0, 1fr);
+        height: 20vw;
+        left: 10vw;
+
+        /* written for clarity */
+        width: calc(20vw * 4);
+    }
+}

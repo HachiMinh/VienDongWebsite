@@ -80,13 +80,34 @@ div#main-grid {
     text-decoration: none;
 }
 
-@media screen and (min-width: 768px) {
-    div#main-grid {
-        grid-template-columns: repeat(6, 1fr);
-        grid-template-areas:
-            "l l n n n n"
-            "b b m m m m"
-            "b b m m m m";
+#navigator-flex .opacity-layer {
+    background-color: black;
+    height: 100vh;
+    left: 0;
+    opacity: 0.5;
+    position: fixed;
+    top: 0;
+    width: calc(100vw - 20px);
+    z-index: 999;
+}
+
+#copyright-footer {
+    background-color: #0a1524;
+    color: white;
+    font-size: 0.75rem;
+    margin-top: 20px;
+    padding: 5px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    h1 {
+        font-size: 1.5em;
+    }
+
+    h2,
+    h3 {
+        font-size: 1em;
     }
 
     #main-grid-item-b #buttons-row-hidden-on-desktop {
