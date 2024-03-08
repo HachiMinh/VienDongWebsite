@@ -32,9 +32,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           </div>
           <Link className="header-signature" href="/">
             <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
-            <div className="company-name">
-              <h1>Công ty Viễn Đông</h1>
-            </div>
           </Link>
         </header>
         <div id="navigator-flex" style={{ display: openMenu ? "block" : "none" }}>
