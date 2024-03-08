@@ -2,27 +2,17 @@
 
 import Link from "next/link";
 import React from "react";
-import { MouseEventHandler, useState } from "react";
+import { useState } from "react";
 import { Open_Sans } from "next/font/google";
 
 import "@/public/static/css/layout.css";
 
 const font = Open_Sans({ subsets: ["vietnamese"], weight: "400" });
-const titles = ["Home", "Section A", "Section B"];
+const titles = ["Trang chủ", "Section A", "Section B"];
 const hrefs = ["/", "/a", "/b"];
 
-function Menu({ onItemClick }: Readonly<{ onItemClick: MouseEventHandler<HTMLSpanElement> }>): JSX.Element {
-  return (
-    <nav className="nav-menu">
-      <ul>
-        {titles.map((title, index) => <li key={index}><Link href={hrefs[index]} onClick={onItemClick}>{title}</Link></li>)}
-      </ul>
-    </nav>
-  );
-}
-
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): JSX.Element {
-  const [displayMenu, setDisplayMenu] = useState(false);
+  const [openMenu, setOpenMenu] = useState(false);
 
   return (
     <html lang="en">
@@ -36,37 +26,40 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
       <body className={font.className}>
-        <div id="main-grid">
-          <div id="main-grid-item-l">
-            <img
-              className="logo"
-              src="/static/images/viendong_logo.jpg"
-            />
+        <header id="main-header">
+          <div className="header-menu">
+            <span className="material-icons" onClick={() => setOpenMenu(!openMenu)}>menu</span>
           </div>
-          <div id="main-grid-item-n">
-            <h1>Công ty Viễn Đông</h1>
-            <h3>Giám đốc Nguyễn Huy Liêm</h3>
-          </div>
-          <div id="main-grid-item-b">
-            <div id="buttons-row-hidden-on-desktop">
-              {
-                displayMenu
-                  ? <span className="material-icons" onClick={() => setDisplayMenu(false)}>cancel</span>
-                  : <span className="material-icons" onClick={() => setDisplayMenu(true)}>menu</span>
-              }
-              <span className="material-icons settings">settings</span>
+          <Link className="header-signature" href="/">
+            <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
+            <div className="company-name">
+              <h1>Công ty Viễn Đông</h1>
             </div>
-            <div id="hidden-menu-on-mobile">
-              <Menu onItemClick={() => setDisplayMenu(false)} />
+          </Link>
+        </header>
+        <div id="navigator-flex" style={{ display: openMenu ? "block" : "none" }}>
+          <div id="side-navigator">
+            <div className="close-menu">
+              <span className="material-icons" onClick={() => setOpenMenu(false)}>close</span>
             </div>
-          </div>
-          <div id="main-grid-item-m">
+            <h3>Mục lục</h3>
             {
-              displayMenu
-                ? <Menu onItemClick={() => setDisplayMenu(false)} />
-                : children
+              titles.map(
+                (title, index) => (
+                  <Link href={hrefs[index]} key={index} onClick={() => setOpenMenu(false)}>{title}</Link>
+                )
+              )
             }
           </div>
+          <div className="opacity-layer" onClick={() => setOpenMenu(false)} />
+        </div>
+        {children}
+        <div id="copyright-footer">
+          <p>Giám đốc: Nguyễn Huy Liêm © 2021-2024 Công ty Cổ phần Viễn Đông Central</p>
+          <p>
+            Địa chỉ: Tầng 10, Tòa Nhà Sông Đà 9, Đường Nguyễn Hoàng, Phường Mỹ Đình 2, Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam
+            - SĐT 0862590591 - MST 0109495463
+          </p>
         </div>
       </body>
     </html >
