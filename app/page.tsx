@@ -25,7 +25,7 @@ export default function Home(): JSX.Element {
               <img alt="" src="/static/images/viendong_logo.jpg" />
             </div>
             <div className="lower">
-              <p>Section A</p>
+              <p>Thương mại</p>
             </div>
           </div>
           <div className="section-b">
@@ -33,7 +33,7 @@ export default function Home(): JSX.Element {
               <img alt="" src="/static/images/viendong_logo.jpg" />
             </div>
             <div className="lower">
-              <p>Section B</p>
+              <p>Xây dựng</p>
             </div>
           </div>
           <div className="section-c">
@@ -41,15 +41,7 @@ export default function Home(): JSX.Element {
               <img alt="" src="/static/images/viendong_logo.jpg" />
             </div>
             <div className="lower">
-              <p>Section C</p>
-            </div>
-          </div>
-          <div className="section-d">
-            <div className="upper">
-              <img alt="" src="/static/images/viendong_logo.jpg" />
-            </div>
-            <div className="lower">
-              <p>Section D</p>
+              <p>Du lịch</p>
             </div>
           </div>
         </div>

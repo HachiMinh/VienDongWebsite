@@ -40,8 +40,8 @@
 #home .grid-sections .sections {
     display: grid;
     grid-template-areas:
-        "a b"
-        "c d";
+        "c c"
+        "a b";
     /* https://stackoverflow.com/a/61240964 */
     grid-template-columns: repeat(2, minmax(0, 1fr));
     grid-template-rows: repeat(2, minmax(0, 1fr));
@@ -92,10 +92,6 @@
     grid-area: c;
 }
 
-#home .grid-sections .sections .section-d {
-    grid-area: d;
-}
-
 @media screen and (min-width: 768px) {
     #home .grid-sections {
         height: 30vw;
@@ -103,13 +99,13 @@
 
     #home .grid-sections .sections {
         grid-template-areas:
-            "a b c d";
-        grid-template-columns: repeat(4, minmax(0, 1fr));
+            "a b c";
+        grid-template-columns: repeat(3, minmax(0, 1fr));
         grid-template-rows: minmax(0, 1fr);
         height: 20vw;
-        left: 10vw;
+        left: 20vw;
 
         /* written for clarity */
-        width: calc(20vw * 4);
+        width: calc(20vw * 3);
     }
 }
