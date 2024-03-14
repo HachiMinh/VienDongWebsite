@@ -2,103 +2,143 @@
     box-sizing: border-box;
 }
 
+.hide-on-mobile {
+    display: none;
+}
+
+.hide-on-desktop {
+    display: block;
+}
+
 body {
     margin: 0;
+    --scrollbar-width: calc(100vw - 100%);
 }
 
-.material-icons {
-    cursor: default;
-}
-
-#main-header {
-    height: 80px;
-    padding: 5px;
-}
-
-/* having no idea how this works? see https://stackoverflow.com/a/1767270 */
-#main-header a.header-signature {
-    color: black;
-    display: flex;
-    flex-direction: row;
-    height: 100%;
-    overflow: hidden;
+a {
+    color: inherit;
     text-decoration: none;
 }
 
-#main-header a.header-signature img.logo {
+div#main-header {
+    background-color: white;
+    border: 1px solid black;
+    left: 0px;
+    position: relative;
+    top: 0px;
+    width: calc(100vw - var(--scrollbar-width));
+    z-index: 1000;
+}
+
+/* having no idea how this works? see https://stackoverflow.com/a/1767270 */
+div#main-header .upper {
+    background-color: lightblue;
+    overflow: hidden;
+    padding-left: 10px;
+    padding-right: 10px;
+    width: 100%;
+}
+
+div#main-header .upper .hotline {
+    float: left;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+div#main-header .upper .menu {
+    display: none;
+    float: none;
+    /* height: 100%; */
+    overflow: hidden;
+    padding-bottom: 5px;
+    padding-top: 5px;
+}
+
+ul.navigator-menu {
+    align-items: center;
+    display: flex;
+    float: right;
+    height: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+ul.navigator-menu li {
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+ul.navigator-menu li a {
+    color: blue;
+    display: inline-block;
+    height: 100%;
+}
+
+ul.navigator-menu li span {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: bold;
+    height: 100%;
+}
+
+ul.navigator-menu li span.material-icons {
+    font-size: 20px;
+    padding-right: 2px;
+    position: relative;
+    top: 3px;
+}
+
+div#main-header .lower {
+    height: 70px;
+    overflow: hidden;
+    padding: 5px;
+    width: 100%;
+}
+
+div#main-header .lower img.logo {
     display: block;
+    float: left;
     max-height: 100%;
     max-width: 100%;
 }
 
-#main-header a.header-signature .company-name {
+div#main-header .lower .menu {
+    float: none;
     height: 100%;
-    margin: auto;
-    text-align: center;
-}
-
-#main-header a.header-signature .company-name h1 {
-    height: 100%;
-    padding: 10px;
-    margin: 0;
-}
-
-#main-header div.header-menu {
-    float: right;
-    height: 100%;
-    /* 70px */
-    line-height: 70px;
-    padding: 10px;
-    text-align: center;
-}
-
-#main-header div.header-menu .material-icons {
-    cursor: pointer;
-}
-
-#navigator-flex #side-navigator {
-    background-color: black;
-    border-bottom-right-radius: 5px;
-    border-top-right-radius: 5px;
-    color: white;
-    height: calc(100vh - 10px);
-    left: 0;
     overflow: hidden;
-    padding-left: 10px;
-    padding-right: 10px;
-    padding-top: 20px;
-    position: fixed;
-    top: 5px;
-    width: 200px;
-    z-index: 1000;
 }
 
-#navigator-flex #side-navigator .close-menu {
-    height: 60px;
-    width: 100%;
+div#main-header .lower .menu ul li span {
+    line-height: 60px;
 }
 
-#navigator-flex #side-navigator .close-menu .material-icons {
-    cursor: pointer;
+/* Vertical alignment (also check out transform: translateY(-50%) below)
+https://stackoverflow.com/a/13872420 */
+div#main-header .lower .menu-button {
     float: right;
-    font-size: 40px;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
-#navigator-flex #side-navigator a {
-    color: yellow;
+#main {
+    /* Have to set margin-bottom here or else the copyright-footer will overlap.
+    Have no idea why though. */
+    margin-bottom: 150px;
+}
+
+#main ul.navigator-menu {
     display: block;
-    text-decoration: none;
+    width: calc(100vw - var(--scrollbar-width));
 }
 
-#navigator-flex .opacity-layer {
-    background-color: black;
-    height: 100vh;
-    left: 0;
-    opacity: 0.5;
-    position: fixed;
-    top: 0;
-    width: 100vw;
-    z-index: 999;
+#main ul.navigator-menu li {
+    border: 1px solid black;
+    border-top: none;
+    padding-bottom: 5px;
+    padding-top: 5px;
 }
 
 #copyright-footer {
@@ -109,6 +149,7 @@ body {
     padding: 10px;
     text-align: left;
     text-indent: 10%;
+    width: calc(100vw - var(--scrollbar-width));
 }
 
 @media screen and (max-width: 768px) {
@@ -123,8 +164,25 @@ body {
 }
 
 @media screen and (min-width: 768px) {
-    #main-header {
-        padding-left: 50px;
-        padding-right: 50px;
+    .hide-on-mobile {
+        display: block;
+    }
+
+    .hide-on-desktop {
+        display: none;
+    }
+
+    div#main-header .upper {
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    div#main-header .upper .menu {
+        display: block;
+    }
+
+    div#main-header .lower {
+        padding-left: 10px;
+        padding-right: 10px;
     }
 }
