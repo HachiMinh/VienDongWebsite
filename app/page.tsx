@@ -8,50 +8,56 @@ export const metadata: Metadata = {
   title: "Trang chủ | Công ty Viễn Đông"
 }
 
+function SectionsContent(
+  {
+    icon,
+    title,
+    subtitle,
+  }: Readonly<{
+    icon: String,
+    title: String,
+    subtitle: String,
+  }>): JSX.Element {
+  return (
+    <div className="content">
+      <div className="icon">
+        <span className="material-icons">{icon}</span>
+      </div>
+      <div className="text">
+        <div className="t1">{title}</div>
+        <div className="t2">{subtitle}</div>
+      </div>
+    </div>
+  );
+}
+
 export default function Home(): JSX.Element {
   return (
     <div id="home">
-      <div className="floating-text">
-        <h1>Công ty Cổ phần Viễn Đông Central</h1>
-        <h2>VIEN DONG CENTRAL.,JSC</h2>
-      </div>
-      <div className="floating-image">
-        <img alt="" src="/static/images/home_placeholder.png" />
-      </div>
-      <div className="grid-sections">
-        <div className="sections">
-          <div className="section-a">
-            <div className="upper">
-              <span className="material-icons">flight</span>
-            </div>
-            <div className="lower">
-              <p>Du lịch</p>
-            </div>
-          </div>
-          <div className="section-b">
-            <div className="upper">
-              <span className="material-icons">construction</span>
-            </div>
-            <div className="lower">
-              <p>Xây dựng</p>
-            </div>
-          </div>
-          <div className="section-c">
-            <div className="upper">
-              <span className="material-icons">shopping_bag</span>
-            </div>
-            <div className="lower">
-              <p>Thương mại</p>
-            </div>
-          </div>
-          <div className="section-d">
-            <div className="upper">
-              <span className="material-icons">info</span>
-            </div>
-            <div className="lower">
-              <p>Về chúng tôi</p>
-            </div>
-          </div>
+      <div className="sections-1">
+        <div className="sections-1-a">
+          <SectionsContent
+            icon="handyman"
+            title="Xây dựng"
+            subtitle="CÔNG TRÌNH" />
+        </div>
+        <div className="sections-1-b">
+          <SectionsContent
+            icon="conveyor_belt"
+            title="Phân phối"
+            subtitle="SẢN PHẨM" />
+        </div>
+        <div className="sections-1-c">
+          <SectionsContent
+            icon="flight_takeoff"
+            title="Dịch vụ"
+            subtitle="DU LỊCH" />
+        </div>
+        <div className="sections-1-d">
+          <SectionsContent
+            icon="local_shipping"
+            title="Dịch vụ"
+            subtitle="Vận tải" />
         </div>
       </div>
     </div>
