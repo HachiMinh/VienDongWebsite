@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 import { Metadata } from "next";
@@ -10,16 +11,18 @@ export const metadata: Metadata = {
 
 function SectionsContent(
   {
+    href,
     icon,
     title,
     subtitle,
   }: Readonly<{
-    icon: String,
-    title: String,
-    subtitle: String,
-  }>): JSX.Element {
+    href: string,
+    icon: string,
+    title: string,
+    subtitle: string,
+  }>): React.JSX.Element {
   return (
-    <div className="content">
+    <Link className="content" href={href}>
       <div className="icon">
         <span className="material-icons">{icon}</span>
       </div>
@@ -27,37 +30,41 @@ function SectionsContent(
         <div className="t1">{title}</div>
         <div className="t2">{subtitle}</div>
       </div>
-    </div>
+    </Link>
   );
 }
 
-export default function Home(): JSX.Element {
+export default function Home(): React.JSX.Element {
   return (
     <div id="home">
       <div className="sections-1">
         <div className="sections-1-a">
           <SectionsContent
+            href="/construction"
             icon="handyman"
             title="Xây dựng"
             subtitle="CÔNG TRÌNH" />
         </div>
         <div className="sections-1-b">
           <SectionsContent
+            href="/trade"
             icon="conveyor_belt"
             title="Phân phối"
             subtitle="SẢN PHẨM" />
         </div>
         <div className="sections-1-c">
           <SectionsContent
+            href="/tourism"
             icon="flight_takeoff"
             title="Dịch vụ"
             subtitle="DU LỊCH" />
         </div>
         <div className="sections-1-d">
           <SectionsContent
+            href="/transportation"
             icon="local_shipping"
             title="Dịch vụ"
-            subtitle="Vận tải" />
+            subtitle="VẬN TẢI" />
         </div>
       </div>
     </div>
