@@ -9,44 +9,27 @@ import "@/public/static/css/layout.css";
 const font = Open_Sans({ subsets: ["vietnamese"], weight: "400" });
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): React.JSX.Element {
-  const headerRef = React.useRef<HTMLDivElement>(null);
-  const [headerTop, setHeaderTop] = React.useState(1);
   const [mobileMenuDisplay, setMobileMenuDisplay] = React.useState(false);
-
-  React.useEffect(
-    () => {
-      window.onscroll = () => {
-        const width = window.innerWidth;
-        if (headerRef.current !== null && width >= 768) { // desktop only
-          if (window.scrollY > headerRef.current.offsetHeight) {
-            setHeaderTop(Math.min(0, window.scrollY - 2 * headerRef.current.offsetHeight));
-          } else {
-            setHeaderTop(1);
-          }
-        }
-      };
-    },
-  );
 
   const menuList = (
     <ul className="navigator-menu">
       <li>
-        <Link href="/">
+        <Link href="/tourism">
           <span>Du lịch</span>
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="/construction">
           <span>Xây dựng</span>
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="/trade">
           <span>Thương mại</span>
         </Link>
       </li>
       <li>
-        <Link href="/">
+        <Link href="/about">
           <span>Về chúng tôi</span>
         </Link>
       </li>
@@ -65,10 +48,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
       <body className={font.className}>
-        <div
-          id="main-header"
-          ref={headerRef}
-          style={headerTop < 1 ? { position: "fixed", top: `${headerTop}px` } : undefined}>
+        <div id="main-header">
           <div className="upper">
             <div className="hotline">
               <span>Hotline: <strong>1900xxxx</strong></span>
@@ -91,7 +71,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </div>
           </div>
           <div className="lower">
-            <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
+            <Link href="/">
+              <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
+            </Link>
             <div className="menu hide-on-mobile">
               {menuList}
             </div>

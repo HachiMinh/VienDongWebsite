@@ -1,9 +1,8 @@
 import Link from "next/link";
 import React from "react";
-
 import { Metadata } from "next";
 
-import "@/public/static/css/home.css";
+import "@/public/static/css/root.css";
 
 export const metadata: Metadata = {
   title: "Trang chủ | Công ty Viễn Đông"

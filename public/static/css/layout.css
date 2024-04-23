@@ -119,6 +119,7 @@ https://stackoverflow.com/a/13872420 */
 div#main-header .lower .menu-button {
     cursor: pointer;
     float: right;
+    font-size: 40px;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
