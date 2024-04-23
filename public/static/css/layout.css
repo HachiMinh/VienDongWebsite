@@ -150,7 +150,6 @@ div#main-header .lower .menu-button {
     margin-top: 10px;
     padding: 10px;
     text-align: left;
-    text-indent: 10%;
     width: calc(100vw - var(--scrollbar-width));
 }
 
