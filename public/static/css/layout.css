@@ -117,7 +117,9 @@ div#main-header .lower .menu ul li span {
 /* Vertical alignment (also check out transform: translateY(-50%) below)
 https://stackoverflow.com/a/13872420 */
 div#main-header .lower .menu-button {
+    cursor: pointer;
     float: right;
+    font-size: 40px;
     position: relative;
     top: 50%;
     transform: translateY(-50%);
