@@ -146,12 +146,30 @@ div#main-header .lower .menu-button {
 #copyright-footer {
     background-color: #0a1524;
     color: white;
+    display: flex;
+    flex-direction: row;
     font-size: 0.75rem;
     margin-top: 10px;
     padding: 10px;
     text-align: left;
-    text-indent: 10%;
     width: calc(100vw - var(--scrollbar-width));
+}
+
+#copyright-footer .flex-left {
+    flex: 7;
+}
+
+#copyright-footer .flex-right {
+    flex: 3;
+}
+
+#copyright-footer .flex-right .github-logo {
+    bottom: 0px;
+    height: 50px;
+    padding: 10px;
+    position: absolute;
+    right: 0px;
+    width: 50px;
 }
 
 @media screen and (max-width: 768px) {

@@ -93,14 +93,21 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
           {mobileMenuDisplay ? menuList : children}
         </div>
         <div id="copyright-footer">
-          <p>© 2021-2024 Công ty Cổ phần Viễn Đông Central</p>
-          <p>Giám đốc: Nguyễn Huy Liêm</p>
-          <p>SĐT: 0862590591</p>
-          <p>MST: 0109495463</p>
-          <p>
-            Địa chỉ: Tầng 10, Tòa Nhà Sông Đà 9, Đường Nguyễn Hoàng, Phường Mỹ Đình 2,
-            Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam
-          </p>
+          <div className="flex-left">
+            <p>© 2021-2024 Công ty Cổ phần Viễn Đông Central</p>
+            <p>Giám đốc: Nguyễn Huy Liêm</p>
+            <p>SĐT: 0862590591</p>
+            <p>MST: 0109495463</p>
+            <p>
+              Địa chỉ: Tầng 10, Tòa Nhà Sông Đà 9, Đường Nguyễn Hoàng, Phường Mỹ Đình 2,
+              Quận Nam Từ Liêm, Thành phố Hà Nội, Việt Nam
+            </p>
+          </div>
+          <div className="flex-right">
+            <Link href="https://github.com/HachiMinh/VienDongWebsite" target="_blank">
+              <img alt="GitHub logo" className="github-logo" src="/static/images/github-mark-white.png" />
+            </Link>
+          </div>
         </div>
       </body>
     </html >

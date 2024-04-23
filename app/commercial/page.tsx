@@ -15,7 +15,7 @@ export default function Home(): React.JSX.Element {
         <div className="header-1">
           <h1>Cung cấp giải pháp thương mại toàn diện</h1>
 
-          Bạn đang tìm kiếm đối tác uy tín để hợp tác trong lĩnh vực thương mại? Hãy đến với Viễn Đông central!
+          Bạn đang tìm kiếm đối tác uy tín để hợp tác trong lĩnh vực thương mại? Hãy đến với Viễn Đông Central!
           Chúng tôi là công ty thương mại hàng đầu với nhiều năm kinh nghiệm trong lĩnh vực xuất nhập khẩu, phân phối hàng hóa
           và cung cấp dịch vụ logistics.
         </div>
