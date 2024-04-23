@@ -6,10 +6,10 @@ div.page-section {
     background-color: rgb(234, 224, 210);
     background-repeat: no-repeat;
     background-size: cover;
+    color: white;
     padding: 20px;
     width: calc(100vw - var(--scrollbar-width));
 }
-
 
 div.page-section div.intro-section .header-1 {
     border-radius: 10px;

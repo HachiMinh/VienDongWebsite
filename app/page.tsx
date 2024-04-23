@@ -41,15 +41,15 @@ export default function Home(): React.JSX.Element {
           <SectionsContent
             href="/construction"
             icon="handyman"
-            title="Xây dựng"
-            subtitle="CÔNG TRÌNH" />
+            title="Dịch vụ"
+            subtitle="XÂY DỰNG" />
         </div>
         <div className="sections-1-b">
           <SectionsContent
-            href="/trade"
+            href="/commercial"
             icon="conveyor_belt"
-            title="Phân phối"
-            subtitle="SẢN PHẨM" />
+            title="Dịch vụ"
+            subtitle="THƯƠNG MẠI" />
         </div>
         <div className="sections-1-c">
           <SectionsContent

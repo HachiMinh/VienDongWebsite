@@ -14,22 +14,27 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
   const menuList = (
     <ul className="navigator-menu">
       <li>
-        <Link href="/tourism">
-          <span>Du lịch</span>
-        </Link>
-      </li>
-      <li>
-        <Link href="/construction">
+        <Link href="/construction" onClick={() => setMobileMenuDisplay(false)}>
           <span>Xây dựng</span>
         </Link>
       </li>
       <li>
-        <Link href="/trade">
+        <Link href="/commercial" onClick={() => setMobileMenuDisplay(false)}>
           <span>Thương mại</span>
         </Link>
       </li>
       <li>
-        <Link href="/about">
+        <Link href="/tourism" onClick={() => setMobileMenuDisplay(false)}>
+          <span>Du lịch</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/transportation" onClick={() => setMobileMenuDisplay(false)}>
+          <span>Vận tải</span>
+        </Link>
+      </li>
+      <li>
+        <Link href="/about" onClick={() => setMobileMenuDisplay(false)}>
           <span>Về chúng tôi</span>
         </Link>
       </li>
