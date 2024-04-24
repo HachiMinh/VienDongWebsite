@@ -104,7 +104,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </p>
           </div>
           <div className="flex-right">
-            <Link href="https://github.com/HachiMinh/VienDongWebsite" target="_blank">
+            <Link className="github-link" href="https://github.com/HachiMinh/VienDongWebsite" target="_blank">
               <img alt="GitHub logo" className="github-logo" src="/static/images/github-mark-white.png" />
             </Link>
           </div>

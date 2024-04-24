@@ -146,9 +146,15 @@ div#main-header .lower .menu-button {
 #copyright-footer {
     background-color: #0a1524;
     color: white;
-    display: flex;
-    flex-direction: row;
+    display: grid;
     font-size: 0.75rem;
+    grid-template-areas:
+        "l l l l"
+        "l l l l"
+        "l l l l"
+        "r r r r";
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    grid-template-rows: repeat(4, minmax(0, 1fr));
     margin-top: 10px;
     padding: 10px;
     text-align: left;
@@ -156,20 +162,25 @@ div#main-header .lower .menu-button {
 }
 
 #copyright-footer .flex-left {
-    flex: 7;
+    grid-area: l;
 }
 
 #copyright-footer .flex-right {
-    flex: 3;
+    grid-area: r;
 }
 
-#copyright-footer .flex-right .github-logo {
-    bottom: 0px;
+#copyright-footer .flex-right .github-link {
+    display: block;
     height: 50px;
     padding: 10px;
     position: absolute;
     right: 0px;
     width: 50px;
+}
+
+#copyright-footer .flex-right .github-link .github-logo {
+    max-height: 100%;
+    max-width: 100%;
 }
 
 @media screen and (max-width: 768px) {
@@ -204,5 +215,14 @@ div#main-header .lower .menu-button {
     div#main-header .lower {
         padding-left: 10px;
         padding-right: 10px;
+    }
+
+    #copyright-footer {
+        grid-template-areas:
+            "l l l l r"
+            "l l l l r"
+            "l l l l r";
+        grid-template-columns: repeat(5, minmax(0, 1fr));
+        grid-template-rows: repeat(3, minmax(0, 1fr));
     }
 }
