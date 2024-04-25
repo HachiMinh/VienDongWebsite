@@ -6,7 +6,7 @@ import LoginForm from "./LoginForm";
 import "@/public/static/css/pages.css";
 
 export const metadata: Metadata = {
-  title: "Administrator dashboard",
+  title: "Login",
 };
 
 export default function Home(): React.JSX.Element {

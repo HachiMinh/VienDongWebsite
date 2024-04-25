@@ -8,6 +8,9 @@ export default class BackendDatabase {
 
   private constructor(connection: Database<sqlite3.Database, sqlite3.Statement>) {
     this.connection = connection;
+    if (typeof window !== "undefined") {
+      throw new Error("BackendDatabase used in Client Component");
+    }
   }
 
   private static _instance: BackendDatabase | undefined;

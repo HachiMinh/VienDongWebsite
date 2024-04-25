@@ -2,6 +2,12 @@ export default class AuthorizationState {
   private _username: string | undefined;
   private _password: string | undefined;
 
+  private constructor() {
+    if (typeof window === "undefined") {
+      throw new Error("AuthorizationState used in Server Component");
+    }
+  }
+
   public get loggedIn(): boolean {
     return this._username !== undefined && this._password !== undefined;
   }
