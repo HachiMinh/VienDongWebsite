@@ -1,6 +1,6 @@
 import React from "react";
 import { Metadata } from "next";
-import { createDarkenBackground } from "../_lib/utils";
+import { createDarkenBackground } from "@/app/_lib/utils";
 
 import "@/public/static/css/pages.css";
 
