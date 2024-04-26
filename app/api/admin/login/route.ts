@@ -21,7 +21,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
   }
 
   const passwordHashed = sha256(data.password);
-  if (data.username === "admin" && passwordHashed === passwordHashed) {
+  if (data.username === "admin" && passwordHashed === "4a7a891eea46056c63820a6c6d90c6cc185d7ed1e7ad89976fb415751a534d0e") {
     return new NextResponse(`Logged in as "${data.username}"`, { status: 200 });
   }
 
