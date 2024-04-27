@@ -52,7 +52,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="author" content="Nguyen Huy Liem" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
-      <body className={font.className}>
+      <body className={font.className}
+        style={mobileMenuDisplay ? {
+          display: "flex",
+          flexDirection: "column",
+          height: "100vh",
+        } : undefined}>
         <div id="main-header">
           <div className="upper">
             <div className="hotline">
@@ -61,13 +66,13 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             <div className="menu">
               <ul className="navigator-menu">
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={() => setMobileMenuDisplay(false)}>
                     <span className="material-icons">corporate_fare</span>
                     <span>Hệ thống giao dịch</span>
                   </Link>
                 </li>
                 <li>
-                  <Link href="/">
+                  <Link href="/" onClick={() => setMobileMenuDisplay(false)}>
                     <span className="material-icons">manage_accounts</span>
                     <span>Đăng ký đại lý</span>
                   </Link>
@@ -76,7 +81,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </div>
           </div>
           <div className="lower">
-            <Link href="/">
+            <Link href="/" onClick={() => setMobileMenuDisplay(false)}>
               <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
             </Link>
             <div className="menu hide-on-mobile">
@@ -89,7 +94,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
             </span>
           </div>
         </div>
-        <div id="main">
+        <div id="main" style={mobileMenuDisplay ? { flex: 1 } : undefined}>
           {mobileMenuDisplay ? menuList : children}
         </div>
         <div id="copyright-footer">
