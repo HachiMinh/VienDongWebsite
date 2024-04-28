@@ -11,8 +11,9 @@
 }
 
 body {
-    margin: 0;
     --scrollbar-width: calc(100vw - 100%);
+    margin: 0;
+    width: calc(100vw - var(--scrollbar-width));
 }
 
 a {
@@ -26,7 +27,7 @@ div#main-header {
     left: 0px;
     position: relative;
     top: 0px;
-    width: calc(100vw - var(--scrollbar-width));
+    width: 100%;
     z-index: 1000;
 }
 
@@ -120,27 +121,35 @@ div#main-header .lower .menu-button {
     cursor: pointer;
     float: right;
     font-size: 40px;
+
+    /* http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
     position: relative;
     top: 50%;
     transform: translateY(-50%);
 }
 
 #main {
-    /* Have to set margin-bottom here or else the copyright-footer will overlap.
-    Have no idea why though. */
-    margin-bottom: 150px;
+    width: 100%;
 }
 
 #main ul.navigator-menu {
     display: block;
-    width: calc(100vw - var(--scrollbar-width));
+    height: 100%;
+    width: 100%;
 }
 
 #main ul.navigator-menu li {
-    border: 1px solid black;
-    border-top: none;
+    border-bottom: 1px solid black;
+    height: 20%;
     padding-bottom: 5px;
     padding-top: 5px;
+}
+
+#main ul.navigator-menu li a {
+    height: 50%;
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
 }
 
 #copyright-footer {
@@ -155,10 +164,10 @@ div#main-header .lower .menu-button {
         "r r r r";
     grid-template-columns: repeat(4, minmax(0, 1fr));
     grid-template-rows: repeat(4, minmax(0, 1fr));
-    margin-top: 10px;
+    margin-top: 20px;
     padding: 10px;
     text-align: left;
-    width: calc(100vw - var(--scrollbar-width));
+    width: 100%;
 }
 
 #copyright-footer .flex-left {
