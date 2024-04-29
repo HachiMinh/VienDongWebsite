@@ -13,7 +13,7 @@ permissions:
 jobs:
   build:
     name: Test build
-    runs-on: windows-latest
+    runs-on: ${{ matrix.os }}
     strategy:
       matrix:
         os: [ubuntu-latest, windows-latest]

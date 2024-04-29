@@ -6,38 +6,38 @@ import { Open_Sans } from "next/font/google";
 
 import "@/public/static/css/layout.css";
 
-const font = Open_Sans({ subsets: ["vietnamese"], weight: "400" });
+const openSans = Open_Sans({ subsets: ["vietnamese"], weight: "400" });
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): React.JSX.Element {
   const [mobileMenuDisplay, setMobileMenuDisplay] = React.useState(false);
 
   const menuList = (
     <ul className="navigator-menu">
-      <li>
-        <Link href="/construction" onClick={() => setMobileMenuDisplay(false)}>
+      <Link href="/construction" onClick={() => setMobileMenuDisplay(false)}>
+        <li>
           <span>Xây dựng</span>
-        </Link>
-      </li>
-      <li>
-        <Link href="/commercial" onClick={() => setMobileMenuDisplay(false)}>
+        </li>
+      </Link>
+      <Link href="/commercial" onClick={() => setMobileMenuDisplay(false)}>
+        <li>
           <span>Thương mại</span>
-        </Link>
-      </li>
-      <li>
-        <Link href="/tourism" onClick={() => setMobileMenuDisplay(false)}>
+        </li>
+      </Link>
+      <Link href="/tourism" onClick={() => setMobileMenuDisplay(false)}>
+        <li>
           <span>Du lịch</span>
-        </Link>
-      </li>
-      <li>
-        <Link href="/transportation" onClick={() => setMobileMenuDisplay(false)}>
+        </li>
+      </Link>
+      <Link href="/transportation" onClick={() => setMobileMenuDisplay(false)}>
+        <li>
           <span>Vận tải</span>
-        </Link>
-      </li>
-      <li>
-        <Link href="/about" onClick={() => setMobileMenuDisplay(false)}>
+        </li>
+      </Link>
+      <Link href="/about" onClick={() => setMobileMenuDisplay(false)}>
+        <li>
           <span>Về chúng tôi</span>
-        </Link>
-      </li>
+        </li>
+      </Link>
     </ul>
   );
 
@@ -52,7 +52,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="author" content="Nguyen Huy Liem" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
       </head>
-      <body className={font.className}
+      <body className={openSans.className}
         style={mobileMenuDisplay ? {
           display: "flex",
           flexDirection: "column",
