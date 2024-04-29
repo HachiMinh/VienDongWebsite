@@ -88,6 +88,82 @@
     grid-area: d;
 }
 
+#home .intro-container {
+    display: grid;
+    grid-template-areas:
+        "a"
+        "b";
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: repeat(2, minmax(0, 1fr));
+    padding: 50px 0;
+    width: 100%;
+}
+
+#home .intro-container .header {
+    grid-area: a;
+    padding: 20px;
+}
+
+#home .intro-container .header h1 {
+    font-size: 64px;
+    font-weight: 700;
+    margin: 0;
+    position: relative;
+    text-align: center;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+#home .intro-container .content {
+    grid-area: b;
+    padding: 20px;
+}
+
+#home .animation {
+    animation-duration: 1ms;
+    animation-fill-mode: both;
+    animation-name: appear;
+
+    position: relative !important;
+}
+
+#home .company {
+    background-color: #f4f1ec;
+
+    /* animation stuff */
+    animation-timeline: --company-timeline;
+    view-timeline: --company-timeline block;
+}
+
+#home .missions {
+    background-color: #424549;
+    color: white;
+
+    /* animation stuff */
+    animation-timeline: --missions-timeline;
+    view-timeline: --missions-timeline block;
+}
+
+#home .fields {
+    background-color: #f4f1ec;
+
+    /* animation stuff */
+    animation-timeline: --fields-timeline;
+    view-timeline: --fields-timeline block;
+}
+
+@keyframes appear {
+    0% {
+        margin-top: 200px;
+        opacity: 0;
+    }
+
+    60% {
+        margin-top: 0;
+        opacity: 1;
+    }
+}
+
 @media screen and (min-width: 370px) {
     #home .sections-1 {
         grid-template-areas:
@@ -106,5 +182,15 @@
         grid-template-columns: repeat(4, minmax(0, 1fr));
         grid-template-rows: 1fr;
         height: 100px;
+    }
+
+    #home .intro-container {
+        grid-template-areas: "a b";
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: minmax(0, 1fr);
+    }
+
+    #home .intro-container.reverse {
+        grid-template-areas: "b a";
     }
 }

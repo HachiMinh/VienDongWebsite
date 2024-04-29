@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home(): React.JSX.Element {
   return (
-    <div className="page-section" style={{ backgroundImage: createDarkenBackground("/static/images/home_placeholder.png") }}>
+    <div className="page-section" style={{ backgroundImage: createDarkenBackground("/static/images/home_placeholder.jpg") }}>
       <div className="intro-section">
         <div className="header-1">
           <h1>Placeholder title</h1>
