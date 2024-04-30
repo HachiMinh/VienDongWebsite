@@ -13,7 +13,7 @@ enum MenuListPlatform {
   mobile,
 }
 
-export function MenuList({
+function MenuList({
   platform,
   callback,
 }: Readonly<{
