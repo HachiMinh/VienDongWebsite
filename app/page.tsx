@@ -25,10 +25,10 @@ function SectionsContent(
   }>): React.JSX.Element {
   return (
     <Link className="content" href={href}>
-      <div className="icon">
-        <span className="material-icons">{icon}</span>
+      <div className="icon horizontal-center">
+        <span className="material-icons horizontal-center">{icon}</span>
       </div>
-      <div className="text">
+      <div className="text horizontal-center">
         <div className="t1">{title}</div>
         <div className="t2">{subtitle}</div>
       </div>
@@ -76,7 +76,7 @@ export default function Home(): React.JSX.Element {
 
       <div className="company intro-container">
         <div className={`header ${varelaRound.className}`}>
-          <h1>Công ty Viễn Đông</h1>
+          <h1 className="horizontal-center">Công ty Viễn Đông</h1>
         </div>
         <div className="content">
           <p>
@@ -90,7 +90,7 @@ export default function Home(): React.JSX.Element {
 
       <div className="missions intro-container reverse animation">
         <div className={`header ${varelaRound.className}`}>
-          <h1>Sứ mệnh</h1>
+          <h1 className="horizontal-center">Sứ mệnh</h1>
         </div>
         <div className="content">
           <ul>
@@ -104,7 +104,7 @@ export default function Home(): React.JSX.Element {
 
       <div className="fields intro-container animation">
         <div className={`header ${varelaRound.className}`}>
-          <h1>Lĩnh vực hoạt động</h1>
+          <h1 className="horizontal-center">Lĩnh vực hoạt động</h1>
         </div>
         <div className="content">
           <ul>

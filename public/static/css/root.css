@@ -33,27 +33,18 @@
     margin-right: 10px;
     max-width: 50px;
     padding: 5px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #home [class^="sections-1-"] .content .icon span.material-icons {
     color: white;
     font-size: 40px;
     font-weight: bold;
-    position: relative;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #home [class^="sections-1-"] .content .text {
     flex: 8;
     height: 40px;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #home [class^="sections-1-"] .content .text .t1 {
@@ -108,10 +99,7 @@
     font-size: 64px;
     font-weight: 700;
     margin: 0;
-    position: relative;
     text-align: center;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #home .intro-container .content {

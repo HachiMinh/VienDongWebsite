@@ -8,38 +8,53 @@ import "@/public/static/css/layout.css";
 
 const openSans = Open_Sans({ subsets: ["vietnamese"], weight: "400" });
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): React.JSX.Element {
-  const [mobileMenuDisplay, setMobileMenuDisplay] = React.useState(false);
+enum MenuListPlatform {
+  desktop,
+  mobile,
+}
 
-  const menuList = (
+export function MenuList({
+  platform,
+  callback,
+}: Readonly<{
+  platform: MenuListPlatform,
+  callback: React.MouseEventHandler<HTMLAnchorElement> | undefined,
+}>): React.JSX.Element {
+  const spanClassName = (platform == MenuListPlatform.mobile) ? "horizontal-center" : undefined;
+  return (
     <ul className="navigator-menu">
-      <Link href="/construction" onClick={() => setMobileMenuDisplay(false)}>
+      <Link href="/construction" onClick={callback}>
         <li>
-          <span>Xây dựng</span>
+          <span className={spanClassName}>Xây dựng</span>
         </li>
       </Link>
-      <Link href="/commercial" onClick={() => setMobileMenuDisplay(false)}>
+      <Link href="/commercial" onClick={callback}>
         <li>
-          <span>Thương mại</span>
+          <span className={spanClassName}>Thương mại</span>
         </li>
       </Link>
-      <Link href="/tourism" onClick={() => setMobileMenuDisplay(false)}>
+      <Link href="/tourism" onClick={callback}>
         <li>
-          <span>Du lịch</span>
+          <span className={spanClassName}>Du lịch</span>
         </li>
       </Link>
-      <Link href="/transportation" onClick={() => setMobileMenuDisplay(false)}>
+      <Link href="/transportation" onClick={callback}>
         <li>
-          <span>Vận tải</span>
+          <span className={spanClassName}>Vận tải</span>
         </li>
       </Link>
-      <Link href="/about" onClick={() => setMobileMenuDisplay(false)}>
+      <Link href="/about" onClick={callback}>
         <li>
-          <span>Về chúng tôi</span>
+          <span className={spanClassName}>Về chúng tôi</span>
         </li>
       </Link>
     </ul>
   );
+
+}
+
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>): React.JSX.Element {
+  const [mobileMenuDisplay, setMobileMenuDisplay] = React.useState(false);
 
   return (
     <html lang="en">
@@ -85,17 +100,19 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
               <img alt="logo" className="logo" src="/static/images/viendong_logo.jpg" />
             </Link>
             <div className="menu hide-on-mobile">
-              {menuList}
+              <MenuList platform={MenuListPlatform.desktop} callback={() => setMobileMenuDisplay(false)} />
             </div>
             <span
-              className="hide-on-desktop material-icons menu-button"
+              className="hide-on-desktop material-icons menu-button horizontal-center"
               onClick={() => setMobileMenuDisplay(!mobileMenuDisplay)}>
               {mobileMenuDisplay ? "close" : "menu"}
             </span>
           </div>
         </div>
         <div id="main" style={mobileMenuDisplay ? { flex: 1 } : undefined}>
-          {mobileMenuDisplay ? menuList : children}
+          {mobileMenuDisplay
+            ? <MenuList platform={MenuListPlatform.mobile} callback={() => setMobileMenuDisplay(false)} />
+            : children}
         </div>
         <div id="copyright-footer">
           <div className="flex-left">

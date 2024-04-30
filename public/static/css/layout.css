@@ -10,6 +10,13 @@
     display: block;
 }
 
+/* http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
+.horizontal-center {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
 body {
     --scrollbar-width: calc(100vw - 100%);
     margin: 0;
@@ -115,17 +122,10 @@ div#main-header .lower .menu ul li span {
     line-height: 60px;
 }
 
-/* Vertical alignment (also check out transform: translateY(-50%) below)
-https://stackoverflow.com/a/13872420 */
 div#main-header .lower .menu-button {
     cursor: pointer;
     float: right;
     font-size: 40px;
-
-    /* http://zerosixthree.se/vertical-align-anything-with-just-3-lines-of-css/ */
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #main {
@@ -148,9 +148,6 @@ div#main-header .lower .menu-button {
 #main ul.navigator-menu li span {
     color: blue;
     height: 50%;
-    position: relative;
-    top: 50%;
-    transform: translateY(-50%);
 }
 
 #copyright-footer {
