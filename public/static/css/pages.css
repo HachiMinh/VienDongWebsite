@@ -1,7 +1,3 @@
-body {
-    --scrollbar-width: calc(100vw - 100%);
-}
-
 div.page-section {
     background-color: rgb(234, 224, 210);
     background-repeat: no-repeat;

@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
-import { createDarkenBackground } from "@/app/_lib/utils";
 
+import "@/public/static/css/about.css";
 import "@/public/static/css/pages.css";
 
 export const metadata: Metadata = {
@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home(): React.JSX.Element {
   return (
-    <div className="page-section" style={{ backgroundImage: createDarkenBackground("/static/images/home_placeholder.jpg") }}>
+    <div className="page-section about">
       <div className="intro-section">
         <div className="header-1">
           <h1>Placeholder title</h1>

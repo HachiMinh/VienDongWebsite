@@ -1,9 +1,8 @@
 import React from "react";
 import { Metadata } from "next";
 
-import { createDarkenBackground } from "@/app/_lib/utils";
-
 import "@/public/static/css/pages.css";
+import "@/public/static/css/transportation.css";
 
 export const metadata: Metadata = {
   title: "Vận tải | Công ty Viễn Đông"
@@ -11,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home(): React.JSX.Element {
   return (
-    <div className="page-section" style={{ backgroundImage: createDarkenBackground("/static/images/transportation-5.jpg") }}>
+    <div className="page-section transportation">
       <div className="intro-section">
         <div className="header-1">
           <h1>Dịch vụ vận tải uy tín, chuyên nghiệp</h1>
