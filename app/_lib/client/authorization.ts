@@ -3,7 +3,7 @@ export default class AuthorizationState {
   private _password: string | undefined;
 
   private constructor() {
-    if (typeof window === "undefined") {
+    if (window === undefined) {
       throw new Error("AuthorizationState used in Server Component");
     }
   }
