@@ -111,8 +111,10 @@
     animation-duration: 1ms;
     animation-fill-mode: both;
     animation-name: appear;
+}
 
-    position: relative !important;
+#home .animation.reverse {
+    animation-name: reverse-appear;
 }
 
 #home .company {
@@ -142,12 +144,24 @@
 
 @keyframes appear {
     0% {
-        margin-top: 200px;
+        transform: translateX(50%);
         opacity: 0;
     }
 
-    60% {
-        margin-top: 0;
+    50% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes reverse-appear {
+    0% {
+        transform: translateX(-50%);
+        opacity: 0;
+    }
+
+    50% {
+        transform: translateX(0);
         opacity: 1;
     }
 }
