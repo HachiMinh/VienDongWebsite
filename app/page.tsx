@@ -1,7 +1,7 @@
 import Link from "next/link";
 import React from "react";
-import { Varela_Round } from "next/font/google";
 import { Metadata } from "next";
+import { Varela_Round } from "next/font/google";
 
 import "@/public/static/css/root.css";
 

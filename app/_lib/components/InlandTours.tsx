@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React from "react";
 
 import Tour from "../types/tourism/tour";
 import TourList from "./TourList";
@@ -9,7 +9,7 @@ export default function InlandTours(): React.JSX.Element {
   const [tours, setTours] = React.useState<Tour[] | null>(null);
   const [fetching, setFetching] = React.useState(false);
 
-  useEffect(
+  React.useEffect(
     () => {
       if (tours === null && !fetching) {
         setFetching(true);
@@ -25,7 +25,6 @@ export default function InlandTours(): React.JSX.Element {
           )
       }
     },
-    [],
   );
 
   return (

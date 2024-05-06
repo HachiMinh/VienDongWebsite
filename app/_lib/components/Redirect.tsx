@@ -15,7 +15,6 @@ export default function Redirect(): React.JSX.Element {
         router.push("/admin");
       }
     },
-    [],
   );
 
   return <h1>Welcome <u>{Authorization.instance.username}</u>!</h1>;
