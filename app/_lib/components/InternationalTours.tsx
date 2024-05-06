@@ -7,10 +7,12 @@ import TourList from "./TourList";
 
 export default function InlandTours(): React.JSX.Element {
   const [tours, setTours] = React.useState<Tour[] | null>(null);
+  const [fetching, setFetching] = React.useState(false);
 
   useEffect(
     () => {
-      if (tours === null) {
+      if (tours === null && !fetching) {
+        setFetching(true);
         fetch("/api/tourism/international/tours", { method: "GET" })
           .then(
             async (response) => {
@@ -18,10 +20,12 @@ export default function InlandTours(): React.JSX.Element {
               const result: Tour[] = [];
               data.forEach((d) => result.push(Tour.fromObject(d)));
               setTours(result);
+              setFetching(false);
             },
           )
       }
     },
+    [],
   );
 
   return (
