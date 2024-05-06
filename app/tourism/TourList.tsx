@@ -1,7 +1,5 @@
 import React from "react";
 
-import "@/public/static/css/tourism.css";
-
 export default function TourList(
   {
     items,

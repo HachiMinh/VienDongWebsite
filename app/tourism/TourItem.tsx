@@ -1,16 +1,14 @@
 import React from "react";
 
-import "@/public/static/css/tourism.css";
-
 export default function TourItem(
   {
-    image,
+    imageSrc,
     title,
     schedule,
     departure,
     slots,
   }: Readonly<{
-    image: string,
+    imageSrc: string,
     title: string,
     schedule: string,
     departure: string,
@@ -20,7 +18,7 @@ export default function TourItem(
   return (
     <div className="tour-item">
       <div className="banner">
-        <img alt="banner" className="banner-image" src={image} />
+        <img alt="banner" className="banner-image" src={imageSrc} />
       </div>
       <div className="tour-info">
         <h3 className="tour-title">{title}</h3>
