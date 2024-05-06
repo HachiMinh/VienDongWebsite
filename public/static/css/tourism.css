@@ -4,6 +4,54 @@ div.page-section.tourism {
         url(/static/images/tourism-mobile.jpg);
 }
 
+div.page-content.tourism {
+    padding: 20px;
+}
+
+.tour-list {
+    height: 400px;
+    overflow: scroll hidden;
+    white-space: nowrap;
+}
+
+.tour-item {
+    border: 1px solid gray;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    margin-right: 5px;
+    width: 260px;
+}
+
+.tour-item .banner {
+    flex: 1;
+}
+
+.tour-item .banner .banner-image {
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+.tour-item .tour-info {
+    flex: 1;
+    padding: 10px;
+}
+
+.tour-item .tour-info h3 {
+    padding: 4px 10px;
+    margin: 0;
+}
+
+.tour-item .tour-info p * {
+    font-size: 14px;
+}
+
+.tour-item .tour-info p .material-icons {
+    margin-right: 5px;
+}
+
 @media screen and (min-width: 768px) {
     div.page-section.tourism {
         background-image:
