@@ -2,7 +2,7 @@
 
 import React, { useEffect } from "react";
 
-import Tour from "@/app/_lib/types/tourism/tour";
+import Tour from "../types/tourism/tour";
 import TourList from "./TourList";
 
 export default function InlandTours(): React.JSX.Element {

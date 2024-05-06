@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 // https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#with-no-ssr
-const DynamicRedirect = dynamic(() => import("./Redirect"), { ssr: false });
+const DynamicRedirect = dynamic(() => import("@/app/_lib/components/Redirect"), { ssr: false });
 
 export default function Home(): React.JSX.Element {
   return (

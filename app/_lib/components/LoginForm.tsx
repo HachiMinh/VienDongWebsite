@@ -3,8 +3,8 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import Authorization from "@/app/_lib/client/authorization";
-import { LoginPayload } from "@/app/_lib/types/admin/login";
+import Authorization from "../client/authorization";
+import { LoginPayload } from "../types/admin/login";
 
 export default function LoginForm(): React.JSX.Element {
   const router = useRouter();

@@ -1,6 +1,6 @@
 import React from "react";
 
-import TourItem from "@/app/tourism/TourItem";
+import TourItem from "../../components/TourItem";
 import { TypeCheckingException } from "../../errors";
 
 export default class Tour {
@@ -21,15 +21,16 @@ export default class Tour {
   }
 
   public toElement(): React.JSX.Element {
-    return (
-      <TourItem
-        key={this.id}
-        imageSrc={this.imageSrc}
-        title={this.title}
-        schedule={this.schedule}
-        departure={this.departure}
-        slots={this.slots === null ? "Unknown" : this.slots.toString()}
-      />
+    return React.createElement(
+      TourItem,
+      {
+        key: this.id,
+        imageSrc: this.imageSrc,
+        title: this.title,
+        schedule: this.schedule,
+        departure: this.departure,
+        slots: this.slots === null ? "Unknown" : this.slots.toString(),
+      },
     );
   }
 

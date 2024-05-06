@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 
-import LoginForm from "./LoginForm";
+import LoginForm from "@/app/_lib/components/LoginForm";
 
 import "@/public/static/css/pages.css";
 

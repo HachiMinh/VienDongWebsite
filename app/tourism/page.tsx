@@ -9,8 +9,8 @@ export const metadata: Metadata = {
   title: "Du lịch | Công ty Viễn Đông"
 }
 
-const InlandTours = dynamic(() => import("./InlandTours"), { ssr: false });
-const InternationalTours = dynamic(() => import("./InternationalTours"), { ssr: false });
+const InlandTours = dynamic(() => import("@/app/_lib/components/InlandTours"), { ssr: false });
+const InternationalTours = dynamic(() => import("@/app/_lib/components/InternationalTours"), { ssr: false });
 
 export default function Home(): React.JSX.Element {
   return (
