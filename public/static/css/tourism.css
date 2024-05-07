@@ -9,7 +9,7 @@ div.page-content.tourism {
 }
 
 .tour-list {
-    height: 400px;
+    height: 380px;
     overflow: scroll hidden;
     white-space: nowrap;
 }
@@ -20,7 +20,7 @@ div.page-content.tourism {
     flex-direction: column;
     height: 100%;
     margin-right: 5px;
-    width: 260px;
+    width: 230px;
 }
 
 .tour-item .banner {
@@ -44,12 +44,21 @@ div.page-content.tourism {
     margin: 0;
 }
 
-.tour-item .tour-info p * {
+.tour-item .tour-info p {
     font-size: 14px;
+    margin: 5px 0;
+    text-wrap: wrap;
+    width: 100%;
 }
 
 .tour-item .tour-info p .material-icons {
+    font-size: 14px;
     margin-right: 5px;
+}
+
+.tour-item .tour-info .tour-cost {
+    color: red;
+    float: inline-end;
 }
 
 @media screen and (min-width: 768px) {
@@ -57,5 +66,13 @@ div.page-content.tourism {
         background-image:
             linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
             url(/static/images/tourism-desktop.jpg);
+    }
+
+    .tour-list {
+        height: 400px;
+    }
+
+    .tour-item {
+        width: 260px;
     }
 }

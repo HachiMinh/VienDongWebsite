@@ -13,6 +13,7 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
         "Sample schedule",
         "Sample departure",
         0,
+        999999999,
       ),
     );
   }

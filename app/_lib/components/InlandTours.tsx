@@ -22,7 +22,7 @@ export default function InlandTours(): React.JSX.Element {
               setTours(result);
               setFetching(false);
             },
-          )
+          );
       }
     },
   );

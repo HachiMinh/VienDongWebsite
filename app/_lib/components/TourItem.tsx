@@ -9,12 +9,14 @@ export default function TourItem(
     schedule,
     departure,
     slots,
+    cost,
   }: Readonly<{
     imageSrc: string,
     title: string,
     schedule: string,
     departure: string,
     slots: string,
+    cost: string,
   }>
 ): React.JSX.Element {
   return (
@@ -36,6 +38,9 @@ export default function TourItem(
           <span className="material-icons">person</span>
           {`Số chỗ còn nhận: ${slots}`}
         </p>
+        <span className="tour-cost">
+          {cost}
+        </span>
       </div>
     </div>
   );
