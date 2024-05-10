@@ -17,7 +17,7 @@ export default function InlandTours(): React.JSX.Element {
           .then(
             async (response) => {
               const data = await response.json() as Array<any>;
-              const result: Tour[] = [];
+              const result: Array<Tour> = [];
               data.forEach((d) => result.push(Tour.fromJson(d)));
               setTours(result);
               setFetching(false);
@@ -30,7 +30,7 @@ export default function InlandTours(): React.JSX.Element {
   return (
     <>
       <h1>Tour nội địa</h1>
-      {tours === null ? undefined : <TourList items={tours.map((tour) => tour.toElement())} />}
+      {tours === null ? undefined : <TourList items={tours} />}
     </>
   );
 }
