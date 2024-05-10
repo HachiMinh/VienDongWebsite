@@ -3,8 +3,8 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import Authorization from "../client/authorization";
-import { LoginPayload } from "../types/admin/login";
+import Authorization from "../../../client/authorization";
+import { LoginPayload } from "../../../types/admin/login";
 
 export default function LoginForm(): React.JSX.Element {
   const router = useRouter();
@@ -28,7 +28,7 @@ export default function LoginForm(): React.JSX.Element {
     );
 
     if (response.status == 200) {
-      Authorization.instance.login(data.username as string, data.password as string);
+      Authorization.instance.login(data);
       router.push("/admin/dashboard");
     } else {
       alert(await response.text());

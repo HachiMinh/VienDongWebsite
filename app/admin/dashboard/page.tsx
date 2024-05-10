@@ -9,14 +9,14 @@ export const metadata: Metadata = {
 };
 
 // https://nextjs.org/docs/pages/building-your-application/optimizing/lazy-loading#with-no-ssr
-const DynamicRedirect = dynamic(() => import("@/app/_lib/components/Redirect"), { ssr: false });
+const Redirect = dynamic(() => import("@/app/_lib/components/admin/login/Redirect"), { ssr: false });
 
 export default function Home(): React.JSX.Element {
   return (
     <div className="page-section">
       <div className="intro-section">
         <div className="header-1" style={{ color: "black" }}>
-          <DynamicRedirect />
+          <Redirect />
         </div>
       </div>
     </div>

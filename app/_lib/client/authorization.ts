@@ -1,3 +1,5 @@
+import { LoginPayload } from "../types/admin/login";
+
 export default class Authorization {
   private _username: string | undefined;
   private _password: string | undefined;
@@ -20,11 +22,11 @@ export default class Authorization {
     return this._password;
   }
 
-  public login(username: string, password: string): void {
-    this._username = username;
-    this._password = password;
-    sessionStorage.setItem("username", username);
-    sessionStorage.setItem("password", password);
+  public login(data: Readonly<LoginPayload>): void {
+    this._username = data.username;
+    this._password = data.password;
+    sessionStorage.setItem("username", data.username);
+    sessionStorage.setItem("password", data.password);
   }
 
   public logout(): void {

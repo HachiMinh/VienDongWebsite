@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import Authorization from "../client/authorization";
+import Authorization from "../../../client/authorization";
 
 export default function Redirect(): React.JSX.Element {
   const router = useRouter();
