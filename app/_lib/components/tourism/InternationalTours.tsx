@@ -29,7 +29,7 @@ export default function InlandTours(): React.JSX.Element {
 
   return (
     <>
-      <h1>Tour nội địa</h1>
+      <h1>Tour quốc tế</h1>
       {tours === null ? undefined : <TourList items={tours} />}
     </>
   );

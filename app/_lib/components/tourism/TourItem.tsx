@@ -37,18 +37,18 @@ export default function TourItem({ tour }: Readonly<{ tour: Tour }>): React.JSX.
         <img alt="banner" className="banner-image" src={tour.imageSrc} />
       </div>
       <div className="tour-info">
-        <h3 className="tour-title">{tour.title}</h3>
+        <h3>{tour.title}</h3>
         <p className="tour-schedule">
           <span className="material-icons">schedule</span>
-          {`Lịch trình: ${tour.days} ngày`}
+          <b>Lịch trình: </b>{`${tour.days} ngày`}
         </p>
         <p className="tour-departure">
           <span className="material-icons">departure_board</span>
-          {`Khởi hành: ${tour.departure.toLocaleDateString("vi-VN")}`}
+          <b>Khởi hành: </b>{`${tour.departure.toLocaleDateString("vi-VN")}`}
         </p>
         <p className="tour-slots">
           <span className="material-icons">person</span>
-          {`Số chỗ còn nhận: ${tour.slots}`}
+          <b>Số chỗ còn nhận: </b>{`${tour.slots}`}
         </p>
         <span className="tour-cost">
           {`${slapCommasToThisNumber(tour.vndCost)} đ`}
