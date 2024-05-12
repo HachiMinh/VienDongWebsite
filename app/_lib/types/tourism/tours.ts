@@ -1,7 +1,7 @@
 import React from "react";
 
 import TourItem from "../../components/tourism/TourItem";
-import { TypeCheckingException } from "../../errors";
+import { JSONFormatError } from "../../errors";
 
 export default class Tour {
   public readonly id: number;
@@ -47,34 +47,34 @@ export default class Tour {
 
   public static fromJson(data: any): Tour {
     if (typeof (data.id) !== "number") {
-      throw new TypeCheckingException("No \"id\" field");
+      throw new JSONFormatError("No \"id\" field");
     }
     if (typeof (data.imageSrc) !== "string") {
-      throw new TypeCheckingException("No \"imageSrc\" field");
+      throw new JSONFormatError("No \"imageSrc\" field");
     }
     if (typeof (data.title) !== "string") {
-      throw new TypeCheckingException("No \"title\" field");
+      throw new JSONFormatError("No \"title\" field");
     }
     if (typeof (data.days) !== "number") {
-      throw new TypeCheckingException("No \"days\" field");
+      throw new JSONFormatError("No \"days\" field");
     }
 
     if (typeof (data.departure) !== "string") {
-      throw new TypeCheckingException("No \"departure\" field");
+      throw new JSONFormatError("No \"departure\" field");
     }
     data.departure = new Date(data.departure);
 
     if (typeof (data.slots) !== "number") {
-      throw new TypeCheckingException("No \"slots\" field");
+      throw new JSONFormatError("No \"slots\" field");
     }
     if (typeof (data.vndCost) !== "number") {
-      throw new TypeCheckingException("No \"vndCost\" field");
+      throw new JSONFormatError("No \"vndCost\" field");
     }
     if (typeof (data.start) !== "string") {
-      throw new TypeCheckingException("No \"start\" field");
+      throw new JSONFormatError("No \"start\" field");
     }
     if (typeof (data.end) !== "string") {
-      throw new TypeCheckingException("No \"end\" field");
+      throw new JSONFormatError("No \"end\" field");
     }
 
     return new Tour(data);

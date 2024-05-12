@@ -15,7 +15,7 @@ export default function LoginForm(): React.JSX.Element {
 
     setFetching(true);
 
-    const data = LoginPayload.fromObject(Object.fromEntries(new FormData(event.target as HTMLFormElement)));
+    const data = LoginPayload.fromJson(Object.fromEntries(new FormData(event.target as HTMLFormElement)));
     const response = await fetch(
       "/api/admin/login",
       {

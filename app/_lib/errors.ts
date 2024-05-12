@@ -8,11 +8,18 @@ export class BaseException extends Error {
   }
 }
 
-
-export class TypeCheckingException extends BaseException {
+export class JSONFormatError extends BaseException {
   constructor(message: string) {
     super(message);
 
-    Object.setPrototypeOf(this, TypeCheckingException.prototype);
+    Object.setPrototypeOf(this, JSONFormatError.prototype);
+  }
+}
+
+export class DatabaseFormatError extends BaseException {
+  constructor(message: string) {
+    super(message);
+
+    Object.setPrototypeOf(this, DatabaseFormatError.prototype);
   }
 }
