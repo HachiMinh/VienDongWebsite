@@ -16,6 +16,10 @@ export default function InlandTours(): React.JSX.Element {
         fetch("/api/tourism/tours?international=false", { method: "GET" })
           .then(
             async (response) => {
+              if (response.status !== 200) {
+                return;
+              }
+
               const data = await response.json() as Array<any>;
               const result: Array<Tour> = [];
               data.forEach((d) => result.push(Tour.fromJson(d)));

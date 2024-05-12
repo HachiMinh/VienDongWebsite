@@ -19,9 +19,11 @@ export default function TourPage({ tourId }: Readonly<{ tourId: string }>): Reac
     () => {
       fetch(`/api/tourism/tours?id=${tourId}`, { method: "GET" }).then(
         async (response) => {
-          const data = await response.json() as Array<any>;
           const tours: Array<Tour> = [];
-          data.forEach((d) => tours.push(Tour.fromJson(d)));
+          if (response.status === 200) {
+            const data = await response.json() as Array<any>;
+            data.forEach((d) => tours.push(Tour.fromJson(d)));
+          }
 
           if (tours.length === 0) {
             router.push("/not-found");
