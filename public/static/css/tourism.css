@@ -4,10 +4,101 @@ div.page-section.tourism {
         url(/static/images/tourism-mobile.jpg);
 }
 
+div.page-content.tourism {
+    padding: 20px;
+}
+
+.tour-list {
+    height: 380px;
+    overflow: scroll hidden;
+    white-space: nowrap;
+}
+
+.tour-body {
+    width: 100%;
+}
+
+.tour-body .banner {
+    width: 100%;
+}
+
+.tour-body .banner img.tour-image {
+    max-width: 100%;
+}
+
+.tour-info p {
+    font-size: 14px;
+    margin: 5px 0;
+    text-wrap: wrap;
+    width: 100%;
+}
+
+.tour-info p .material-icons {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.tour-info .tour-cost {
+    color: red;
+    float: inline-end;
+}
+
+.tour-item {
+    border: 1px solid gray;
+    display: inline-flex;
+    flex-direction: column;
+    height: 100%;
+    margin-right: 5px;
+    width: 230px;
+}
+
+.tour-item .banner {
+    flex: 1;
+}
+
+.tour-item .banner .banner-image {
+    height: 100%;
+    max-height: 100%;
+    max-width: 100%;
+    width: 100%;
+}
+
+.tour-item .tour-info {
+    flex: 1;
+    padding: 10px;
+}
+
+.tour-item .tour-info h3 {
+    padding: 4px 10px;
+    margin: 0;
+}
+
 @media screen and (min-width: 768px) {
     div.page-section.tourism {
         background-image:
             linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
             url(/static/images/tourism-desktop.jpg);
+    }
+
+    .tour-body {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .tour-body .banner {
+        flex: 6;
+    }
+
+    .tour-body .tour-info {
+        flex: 4;
+        padding: 10px;
+    }
+
+    .tour-list {
+        height: 400px;
+    }
+
+    .tour-item {
+        width: 260px;
     }
 }

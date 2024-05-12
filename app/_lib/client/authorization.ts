@@ -1,10 +1,12 @@
-export default class AuthorizationState {
+import { LoginPayload } from "../types/admin/login";
+
+export default class Authorization {
   private _username: string | undefined;
   private _password: string | undefined;
 
   private constructor() {
-    if (typeof window === "undefined") {
-      throw new Error("AuthorizationState used in Server Component");
+    if (window === undefined) {
+      throw new Error("Authorization cannot be used in a server component");
     }
   }
 
@@ -20,11 +22,11 @@ export default class AuthorizationState {
     return this._password;
   }
 
-  public login(username: string, password: string): void {
-    this._username = username;
-    this._password = password;
-    sessionStorage.setItem("username", username);
-    sessionStorage.setItem("password", password);
+  public login(data: Readonly<LoginPayload>): void {
+    this._username = data.username;
+    this._password = data.password;
+    sessionStorage.setItem("username", data.username);
+    sessionStorage.setItem("password", data.password);
   }
 
   public logout(): void {
@@ -34,8 +36,8 @@ export default class AuthorizationState {
     sessionStorage.removeItem("password");
   }
 
-  private static _instance: AuthorizationState | undefined;
-  public static get instance(): AuthorizationState {
+  private static _instance: Authorization | undefined;
+  public static get instance(): Authorization {
     if (this._instance === undefined) {
       this._instance = new this();
     }

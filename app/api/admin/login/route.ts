@@ -1,39 +1,28 @@
 import { NextRequest, NextResponse } from "next/server";
-import { sha256 } from "js-sha256";
 
-// Vercel filesystem is read-only
-// import BackendDatabase from "@/app/_lib/server/database";
-
-interface LoginPayload {
-  username: string;
-  password: string;
-}
+import Database from "@/app/_lib/server/database";
+import { LoginPayload, LoginPayloadRow } from "@/app/_lib/types/admin/login";
+import { JSONFormatError } from "@/app/_lib/errors";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
-  const data = await request.json() as LoginPayload;
+  try {
+    const data = LoginPayload.fromJson(await request.json());
 
-  // Type-checking
-  if (typeof (data.username) !== "string") {
-    return new NextResponse("No \"username\" field", { status: 400 });
+    const rows = await Database.instance.query("SELECT * FROM admin WHERE name = $1", [data.username]);
+    if (rows.rowCount > 0) {
+      const compare = LoginPayloadRow.fromRow(rows.rows[0]);
+      if (data.passwordHashed === compare.passwordHashed) {
+        return new NextResponse(`Logged in as "${data.username}"`, { status: 200 });
+      }
+    }
+
+    return new NextResponse("Invalid credentials", { status: 403 });
+  } catch (e: any) {
+    if (e instanceof JSONFormatError) {
+      return new NextResponse(e.message, { status: 400 });
+    }
+
+    console.error(e);
+    return new NextResponse("Internal server error", { status: 500 });
   }
-  if (typeof (data.password) !== "string") {
-    return new NextResponse("No \"password\" field", { status: 400 });
-  }
-
-  const passwordHashed = sha256(data.password);
-  if (data.username === "admin" && passwordHashed === "4a7a891eea46056c63820a6c6d90c6cc185d7ed1e7ad89976fb415751a534d0e") {
-    return new NextResponse(`Logged in as "${data.username}"`, { status: 200 });
-  }
-
-  /*
-  const database = await BackendDatabase.getInstance();
-
-  // Password checking
-  const row = await database.connection.get("SELECT passwordHashed FROM admin_users WHERE user = ?", data.username);
-  if (row !== undefined && row.passwordHashed === passwordHashed) {
-    return new NextResponse(`Logged in as "${data.username}"`, { status: 200 });
-  }
-  */
-
-  return new NextResponse("Invalid credentials", { status: 403 });
 }

@@ -3,7 +3,7 @@
 import React from "react";
 import { useRouter } from "next/navigation";
 
-import AuthorizationState from "@/app/_lib/client/authorization";
+import Authorization from "../../../client/authorization";
 
 export default function Redirect(): React.JSX.Element {
   const router = useRouter();
@@ -11,11 +11,11 @@ export default function Redirect(): React.JSX.Element {
   // https://stackoverflow.com/a/63424831
   React.useEffect(
     () => {
-      if (!AuthorizationState.instance.loggedIn) {
+      if (!Authorization.instance.loggedIn) {
         router.push("/admin");
       }
     },
   );
 
-  return <h1>Welcome <u>{AuthorizationState.instance.username}</u>!</h1>;
+  return <h1>Welcome <u>{Authorization.instance.username}</u>!</h1>;
 }
