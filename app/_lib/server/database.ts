@@ -52,7 +52,7 @@ export default class Database {
           await pool.query("CREATE TABLE IF NOT EXISTS admin (name text primary key, password_hashed text)");
           await pool.query(`
             INSERT INTO admin (name, password_hashed)
-            VALUES ('admin', '4a7a891eea46056c63820a6c6d90c6cc185d7ed1e7ad89976fb415751a534d0e')
+            VALUES ('admin', '1234567825a3244927bf0f4272b32c739590754b3207d56f53c18c886f629451b6d5fe17')
             ON CONFLICT DO NOTHING
           `);
           this._initialized = true;
