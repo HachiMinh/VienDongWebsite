@@ -18,7 +18,7 @@ export default async function authenticate(request: NextRequest): Promise<Authen
     const rows = await Database.instance.query("SELECT * FROM admin WHERE name = $1", [data.username]);
     if (rows.rowCount > 0) {
       const compare = LoginPayloadRow.fromRow(rows.rows[0]);
-      if (data.passwordHashed === compare.passwordHashed) {
+      if (compare.validate(data)) {
         return AuthenticationStatus.SUCCESS;
       }
     }
