@@ -14,27 +14,25 @@ export default function LoginForm(): React.JSX.Element {
     event.preventDefault();
 
     setFetching(true);
-
-    const data = LoginPayload.fromJson(Object.fromEntries(new FormData(event.target as HTMLFormElement)));
-    const response = await fetch(
-      "/api/admin/login",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    try {
+      const data = LoginPayload.fromJson(Object.fromEntries(new FormData(event.target as HTMLFormElement)));
+      const response = await fetch(
+        "/api/admin/login",
+        {
+          method: "POST",
+          headers: data.toHeaders(),
         },
-        body: JSON.stringify(data),
-      },
-    );
+      );
 
-    if (response.status == 200) {
-      Authorization.instance.login(data);
-      router.push("/admin/dashboard");
-    } else {
-      alert(await response.text());
+      if (response.status == 200) {
+        Authorization.instance.login(data);
+        router.push("/admin/dashboard");
+      } else {
+        alert(await response.text());
+      }
+    } finally {
+      setFetching(false);
     }
-
-    setFetching(false);
   }
 
   return (

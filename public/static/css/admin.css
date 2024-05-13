@@ -1,0 +1,46 @@
+.page-content.sql {
+    display: grid;
+    grid-template-areas: "l r";
+    padding: 10px;
+    width: 100%;
+}
+
+.sql-header {
+    grid-area: l;
+    height: 100%;
+}
+
+.sql-header h2 {
+    margin: 0;
+}
+
+form.sql {
+    grid-area: r;
+    width: 100%;
+}
+
+form.sql textarea {
+    width: 100%;
+}
+
+form.sql button {
+    margin-left: 5px;
+}
+
+.page-content.sql-table {
+    padding: 10px;
+    width: 100%;
+}
+
+.page-content.sql-table table {
+    border: 1px solid black;
+    border-collapse: collapse;
+    text-align: center;
+    width: 100%;
+}
+
+.page-content.sql-table table th,
+.page-content.sql-table table td {
+    border-bottom: 1px solid black;
+    padding: 10px 0;
+}
