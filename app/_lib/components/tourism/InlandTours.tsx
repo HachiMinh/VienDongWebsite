@@ -29,6 +29,7 @@ export default function InlandTours(): React.JSX.Element {
           );
       }
     },
+    [],
   );
 
   return (
