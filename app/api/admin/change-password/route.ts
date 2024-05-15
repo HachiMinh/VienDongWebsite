@@ -2,19 +2,24 @@ import { NextRequest, NextResponse } from "next/server";
 
 import authenticate, { AuthenticationStatus } from "@/app/_lib/server/authenticate";
 import Database from "@/app/_lib/server/database";
+import { ChangePasswordPayload } from "@/app/_lib/types/admin/password";
 import { JSONFormatError } from "@/app/_lib/errors";
 import { HTTPBadRequest, HTTPForbidden, HTTPInternalServerError, HTTPOK } from "@/app/_lib/types/responses";
-import { SQLQuery } from "@/app/_lib/types/admin/sql";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
   const result = await authenticate(request);
   switch (result.status) {
     case AuthenticationStatus.SUCCESS:
       try {
-        const data = SQLQuery.fromJson(await request.json());
-        const row = await Database.instance.query(data.query);
+        const data = ChangePasswordPayload.fromJson(await request.json());
+        console.log(data.oldPassword);
+        console.log(result.data?.password);
+        if (data.oldPassword === result.data?.password) {
+          await Database.instance.query("UPDATE admin SET password_hashed = $1 WHERE name = $2", [data.hashNewPassword(), result.data?.username]);
+          return new HTTPOK();
+        }
 
-        return new HTTPOK(JSON.stringify(row));
+        return new HTTPForbidden();
       } catch (e: any) {
         if (e instanceof JSONFormatError) {
           return new HTTPBadRequest();

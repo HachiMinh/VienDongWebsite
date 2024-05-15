@@ -11,7 +11,17 @@ export enum AuthenticationStatus {
   SERVER_ERROR,
 }
 
-export default async function authenticate(request: NextRequest): Promise<AuthenticationStatus> {
+class AuthenticationResult {
+  public readonly status: AuthenticationStatus;
+  public readonly data: LoginPayload | null;
+
+  public constructor(status: AuthenticationStatus, data: LoginPayload | null = null) {
+    this.status = status;
+    this.data = data;
+  }
+}
+
+export default async function authenticate(request: NextRequest): Promise<AuthenticationResult> {
   try {
     const data = LoginPayload.fromHeaders(request.headers);
 
@@ -19,17 +29,17 @@ export default async function authenticate(request: NextRequest): Promise<Authen
     if (rows.rowCount > 0) {
       const compare = LoginPayloadRow.fromRow(rows.rows[0]);
       if (compare.validate(data)) {
-        return AuthenticationStatus.SUCCESS;
+        return new AuthenticationResult(AuthenticationStatus.SUCCESS, data);
       }
     }
 
-    return AuthenticationStatus.FAILURE;
+    return new AuthenticationResult(AuthenticationStatus.FAILURE);
   } catch (e: any) {
     if (e instanceof HeadersFormatError) {
-      return AuthenticationStatus.CLIENT_ERROR;
+      return new AuthenticationResult(AuthenticationStatus.CLIENT_ERROR);
     }
 
     console.error(e);
-    return AuthenticationStatus.SERVER_ERROR;
+    return new AuthenticationResult(AuthenticationStatus.SERVER_ERROR);
   }
 }

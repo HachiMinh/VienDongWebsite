@@ -4,7 +4,8 @@ import authenticate, { AuthenticationStatus } from "@/app/_lib/server/authentica
 import { HTTPBadRequest, HTTPForbidden, HTTPInternalServerError, HTTPOK } from "@/app/_lib/types/responses";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
-  switch (await authenticate(request)) {
+  const result = await authenticate(request);
+  switch (result.status) {
     case AuthenticationStatus.SUCCESS:
       return new HTTPOK();
     case AuthenticationStatus.FAILURE:
