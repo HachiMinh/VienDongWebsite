@@ -12,8 +12,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
     case AuthenticationStatus.SUCCESS:
       try {
         const data = ChangePasswordPayload.fromJson(await request.json());
-        console.log(data.oldPassword);
-        console.log(result.data?.password);
         if (data.oldPassword === result.data?.password) {
           await Database.instance.query("UPDATE admin SET password_hashed = $1 WHERE name = $2", [data.hashNewPassword(), result.data?.username]);
           return new HTTPOK();

@@ -48,7 +48,7 @@ export default function Dashboard(): React.JSX.Element {
       );
       if (response.status === 200) {
         const data = await response.json() as QueryResult<any>;
-        console.log(data);
+        console.log(data);  // intentional logging
         setSqlTable(
           <table>
             <thead>
