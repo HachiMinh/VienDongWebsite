@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 import Authorization from "../../client/authorization";
 import { ChangePasswordPayload } from "../../types/admin/password";
 import { LoginPayload } from "../../types/admin/login";
-import { SQLQuery } from "../../types/admin/sql";
+import { SQLQueryPayload } from "../../types/admin/sql";
 
 export default function Dashboard(): React.JSX.Element {
   const router = useRouter();
@@ -33,7 +33,7 @@ export default function Dashboard(): React.JSX.Element {
     event.preventDefault();
     setSql(true);
     try {
-      const data = SQLQuery.fromJson(Object.fromEntries(new FormData(event.target as HTMLFormElement)));
+      const data = SQLQueryPayload.fromJson(Object.fromEntries(new FormData(event.target as HTMLFormElement)));
 
       const headers = LoginPayload.fromSessionStorage().toHeaders();
       headers.set("Content-Type", "application/json");
@@ -85,6 +85,10 @@ export default function Dashboard(): React.JSX.Element {
     setChangingPassword(true);
     try {
       const data = ChangePasswordPayload.fromJson(Object.fromEntries(new FormData(event.target as HTMLFormElement)));
+      if (!data.match()) {
+        alert("New passwords do not match");
+        return;
+      }
 
       const headers = LoginPayload.fromSessionStorage().toHeaders();
       headers.set("Content-Type", "application/json");
@@ -141,6 +145,8 @@ export default function Dashboard(): React.JSX.Element {
           <input name="oldPassword" type="password" /><br /><br />
           <label htmlFor="new-password">New password </label>
           <input name="newPassword" type="password" /><br /><br />
+          <label htmlFor="confirm-new-password">Confirm new password </label>
+          <input name="confirmNewPassword" type="password" /><br /><br />
           <input disabled={changingPassword} type="submit" value="Confirm" />
         </form>
       </div>

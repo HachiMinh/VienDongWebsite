@@ -101,6 +101,11 @@ export class LoginPayload {
     return new LoginPayload(username, password);
   }
 
+  /**
+   * Construct a {@link LoginPayload} object from the singleton {@link Authorization} object.
+   * 
+   * @returns The payload as a {@link LoginPayload} object
+   */
   public static fromSessionStorage(): LoginPayload {
     const authorization = Authorization.instance;
     if (!authorization.hasData) {
@@ -111,21 +116,41 @@ export class LoginPayload {
   }
 }
 
+/**
+ * Represents a row in the SQL database containing authorization data.
+ */
 export class LoginPayloadRow {
+  /** The username */
   public readonly name: string;
+
+  /** The SHA-256 hashed string of salt + password */
   public readonly passwordHashed: string;
+
+  /** The password salt */
   public readonly salt: string;
 
-  public constructor(name: string, passwordHashed: string) {
+  private constructor(name: string, passwordHashed: string) {
     this.name = name;
     this.passwordHashed = passwordHashed.substring(8);
     this.salt = passwordHashed.substring(0, 8);
   }
 
+  /**
+   * Validate a {@link LoginPayload} object.
+   * 
+   * @param payload The payload to validate
+   * @returns Whether the login payload has correct information
+   */
   public validate(payload: LoginPayload): boolean {
-    return payload.passwordHashed(this.salt) === this.salt + this.passwordHashed;
+    return payload.username === this.name && payload.passwordHashed(this.salt) === this.salt + this.passwordHashed;
   }
 
+  /**
+   * Construct a new {@link LoginPayloadRow} object from a database row.
+   * 
+   * @param data The database row
+   * @returns A new {@link LoginPayloadRow} object
+   */
   public static fromRow(data: any): LoginPayloadRow {
     if (typeof (data.name) !== "string") {
       throw new DatabaseFormatError("No \"name\" field");
@@ -137,6 +162,12 @@ export class LoginPayloadRow {
     return new LoginPayloadRow(data.name, data.password_hashed);
   }
 
+  /**
+   * Construct an array of {@link LoginPayloadRow} objects from a database query result.
+   * 
+   * @param rows The database query result
+   * @returns An array of {@link LoginPayloadRow} objects
+   */
   public static fromRows(rows: QueryResult<any>): Array<LoginPayloadRow> {
     return rows.rows.map((row) => LoginPayloadRow.fromRow(row));
   }
