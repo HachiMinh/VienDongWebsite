@@ -38,9 +38,9 @@ export default function LoginForm(): React.JSX.Element {
   return (
     <form onSubmit={onLogin}>
       <label htmlFor="username">Username </label>
-      <input type="text" id="username" name="username" /><br /><br />
+      <input name="username" type="text" /><br /><br />
       <label htmlFor="password">Password </label>
-      <input type="password" id="password" name="password" /><br /><br />
+      <input name="password" type="password" /><br /><br />
       <input disabled={fetching} type="submit" value="Login" />
     </form>
   );

@@ -1,46 +1,58 @@
-.page-content.sql {
+.page-content.admin.grid-view {
     display: grid;
-    grid-template-areas: "l r";
+    grid-template-areas:
+        "l"
+        "r";
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    grid-template-rows: repeat(2, minmax(0, 1fr));
     padding: 10px;
     width: 100%;
 }
 
-.sql-header {
+.page-content.admin.grid-view .section-l {
     grid-area: l;
     height: 100%;
 }
 
-.sql-header h2 {
+.page-content.admin.grid-view .section-l h2 {
     margin: 0;
 }
 
-form.sql {
+.page-content.admin.grid-view .section-r {
     grid-area: r;
     width: 100%;
 }
 
-form.sql textarea {
+.page-content.admin.sql .section-r textarea {
     width: 100%;
 }
 
-form.sql button {
+.page-content.admin.sql .section-r button {
     margin-left: 5px;
 }
 
-.page-content.sql-table {
+.page-content.admin.sql-table {
     padding: 10px;
     width: 100%;
 }
 
-.page-content.sql-table table {
+.page-content.admin.sql-table table {
     border: 1px solid black;
     border-collapse: collapse;
     text-align: start;
     width: 100%;
 }
 
-.page-content.sql-table table th,
-.page-content.sql-table table td {
+.page-content.admin.sql-table table th,
+.page-content.admin.sql-table table td {
     border-bottom: 1px solid black;
     padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+    .page-content.admin.grid-view {
+        grid-template-areas: "l r";
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-template-rows: repeat(1, minmax(0, 1fr));
+    }
 }
