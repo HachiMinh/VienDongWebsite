@@ -28,11 +28,11 @@ a {
     text-decoration: none;
 }
 
-div#main-header {
+#main-header {
     background-color: white;
     border-bottom: 1px solid black;
     left: 0px;
-    position: relative;
+    position: sticky;
     top: 0px;
     width: 100%;
     z-index: 1000;
