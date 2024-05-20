@@ -51,7 +51,11 @@ export default function TourPage({ tourId }: Readonly<{ tourId: string }>): Reac
                   </p>
                   <p className="tour-route">
                     <span className="material-icons">place</span>
-                    <b>Lộ trình: </b>{`${tour.start} - ${tour.end}`}
+                    <b>Lộ trình: </b>{`${tour.start} - ${tour.destination}`}
+                  </p>
+                  <p className="tour-description">
+                    <span className="material-icons">description</span>
+                    <b>Chi tiết: </b>{tour.description}
                   </p>
                 </div>
               </div>,
@@ -65,7 +69,7 @@ export default function TourPage({ tourId }: Readonly<{ tourId: string }>): Reac
 
   return (
     <>
-      <div className="page-section tourism">
+      <div className="page-header tourism">
         <div className="intro-section">
           <div className="header-1" >
             {header}

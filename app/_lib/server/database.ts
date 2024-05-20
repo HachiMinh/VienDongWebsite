@@ -51,6 +51,21 @@ export default class Database {
           const pool = await this._getPool();
           await pool.query("CREATE TABLE IF NOT EXISTS admin (name text primary key, password_hashed text)");
           await pool.query(`
+            CREATE TABLE IF NOT EXISTS tours (
+              id serial primary key,
+              image_src text,
+              title text,
+              days integer,
+              departure date,
+              slots integer,
+              vndCost integer,
+              start text,
+              destination text,
+              international boolean,
+              description text
+            )
+          `);
+          await pool.query(`
             INSERT INTO admin (name, password_hashed)
             VALUES ('admin', '1234567825a3244927bf0f4272b32c739590754b3207d56f53c18c886f629451b6d5fe17')
             ON CONFLICT DO NOTHING

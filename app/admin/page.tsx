@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function Home(): React.JSX.Element {
   return (
-    <div className="page-section admin-login">
+    <div className="page-header admin-login">
       <div className="intro-section">
         <div className="header-1" style={{ color: "black" }}>
           <h1>Login</h1>

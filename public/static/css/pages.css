@@ -1,4 +1,4 @@
-div.page-section {
+div.page-header {
     background-color: rgb(234, 224, 210);
     background-repeat: no-repeat;
     background-size: cover;
@@ -7,14 +7,14 @@ div.page-section {
     width: calc(100vw - var(--scrollbar-width));
 }
 
-div.page-section div.intro-section .header-1 {
+div.page-header div.intro-section .header-1 {
     border-radius: 10px;
     padding: 50px;
     width: 100%;
 }
 
 @media screen and (min-width: 768px) {
-    div.page-section div.intro-section .header-1 {
+    div.page-header div.intro-section .header-1 {
         width: 60%;
     }
 }

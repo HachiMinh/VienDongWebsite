@@ -1,37 +1,27 @@
 import { NextRequest, NextResponse } from "next/server";
 
+import Database from "@/app/_lib/server/database";
 import Tour from "@/app/_lib/types/tourism/tours";
 
 export async function GET(request: NextRequest): Promise<NextResponse> {
-  let tours: Array<Tour> = new Array<Tour>();
-  for (let i = 0; i < 20; i++) {
-    tours.push(
-      new Tour({
-        id: i,
-        imageSrc: "/static/images/home_placeholder.jpg",
-        title: `Sample tour ${i}`,
-        days: 3,
-        departure: new Date(Date.now()),
-        slots: 0,
-        vndCost: 999999999,
-        start: "Astral Express",
-        end: "Penacony",
-        international: i % 2 == 0,
-      }),
-    );
-  }
+  let constraints: Array<string> = [];
+  let constraintValues: Array<any> = [];
 
   const id = request.nextUrl.searchParams.get("id");
   if (id !== null) {
-    tours = Array.from(tours).filter((tour) => tour.id.toString() === id);
+    constraints.push(`id = $${1 + constraints.length}`);
+    constraintValues.push(id);
   }
 
-  const international = request.nextUrl.searchParams.get("international");
-  if (international === "true") {
-    tours = Array.from(tours).filter((tour) => tour.international);
-  } else if (international === "false") {
-    tours = Array.from(tours).filter((tour) => !tour.international);
+  const internationalString = request.nextUrl.searchParams.get("international");
+  const international = internationalString === "true" ? true : (internationalString === "false" ? false : null);
+  if (international !== null) {
+    constraints.push(`international = $${1 + constraints.length}`);
+    constraintValues.push(international);
   }
+
+  const queryResult = await Database.instance.query(`SELECT * FROM tours WHERE ${constraints.join(" AND ")}`, constraintValues);
+  const tours = Tour.fromRows(queryResult);
 
   return NextResponse.json(tours);
 }

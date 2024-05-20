@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function Home(): React.JSX.Element {
   return (
-    <div className="page-section commercial">
+    <div className="page-header commercial">
       <div className="intro-section">
         <div className="header-1">
           <h1>Cung cấp giải pháp thương mại toàn diện</h1>

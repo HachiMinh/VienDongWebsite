@@ -116,7 +116,7 @@ export default function Dashboard(): React.JSX.Element {
 
   return (
     <>
-      <div className="page-section admin">
+      <div className="page-header admin">
         <div className="intro-section">
           <div className="header-1" style={{ color: "black" }}>
             <h1>Welcome <u>{Authorization.instance.username}</u>!</h1>
