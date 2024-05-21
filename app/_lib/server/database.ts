@@ -82,13 +82,29 @@ export default class Database {
     }
   }
 
+  private static readonly MILLISECONDS_PER_QUERY = 2000;
+  private _lastQuery: number = Date.now();
+  private readonly _queryMutex = new Mutex();
+
   public async query(text: string, values?: any[]): Promise<QueryResult<any>> {
     await this.checkInitialize();
 
-    console.log(`Querying \"${text}\" with values ${values}`);  // intentional logging
+    return await this._queryMutex.runExclusive(
+      async () => {
+        const sleep = this._lastQuery + Database.MILLISECONDS_PER_QUERY - Date.now();
+        if (sleep > 0) {
+          await new Promise((resolver) => setTimeout(resolver, sleep));
+        }
 
-    // TODO: Implement rate-limit
-    const pool = await this._getPool();
-    return await pool.query(text, values);
+        console.log(`Querying \"${text}\" with values ${values}`);  // intentional logging
+
+        const pool = await this._getPool();
+        const result = await pool.query(text, values);
+
+        this._lastQuery = Date.now();
+
+        return result;
+      },
+    );
   }
 }
