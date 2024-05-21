@@ -20,7 +20,12 @@ export async function GET(request: NextRequest): Promise<NextResponse> {
     constraintValues.push(international);
   }
 
-  const queryResult = await Database.instance.query(`SELECT * FROM tours WHERE ${constraints.join(" AND ")}`, constraintValues);
+  let query = "SELECT * FROM tours";
+  if (constraints.length > 0) {
+    query += ` WHERE ${constraints.join(" AND ")}`;
+  }
+
+  const queryResult = await Database.instance.query(query, constraintValues);
   const tours = Tour.fromRows(queryResult);
 
   return NextResponse.json(tours);

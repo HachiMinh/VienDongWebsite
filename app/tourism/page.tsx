@@ -9,8 +9,7 @@ export const metadata: Metadata = {
   title: "Du lịch | Công ty Viễn Đông"
 }
 
-const InlandTours = dynamic(() => import("@/app/_lib/components/tourism/InlandTours"), { ssr: false });
-const InternationalTours = dynamic(() => import("@/app/_lib/components/tourism/InternationalTours"), { ssr: false });
+const TourList = dynamic(() => import("@/app/_lib/components/tourism/TourList"), { ssr: false });
 
 export default function Home(): React.JSX.Element {
   return (
@@ -27,8 +26,10 @@ export default function Home(): React.JSX.Element {
         </div>
       </div>
       <div className="page-content tourism">
-        <InlandTours />
-        <InternationalTours />
+        <h1>Tour nội địa</h1>
+        <TourList international={false} />
+        <h1>Tour quốc tế</h1>
+        <TourList international={true} />
       </div>
     </>
   );

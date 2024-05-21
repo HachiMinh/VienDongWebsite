@@ -49,20 +49,20 @@ export default class Database {
       async () => {
         if (!this._initialized) {
           const pool = await this._getPool();
-          await pool.query("CREATE TABLE IF NOT EXISTS admin (name text primary key, password_hashed text)");
+          await pool.query("CREATE TABLE IF NOT EXISTS admin (name text not null primary key, password_hashed text not null)");
           await pool.query(`
             CREATE TABLE IF NOT EXISTS tours (
               id serial primary key,
-              image_src text,
-              title text,
-              days integer,
-              departure date,
-              slots integer,
-              vndCost integer,
-              start text,
-              destination text,
-              international boolean,
-              description text
+              image_src text not null,
+              title text not null,
+              days integer not null,
+              departure date not null,
+              slots integer not null,
+              vnd_cost integer not null,
+              start text not null,
+              destination text not null,
+              international boolean not null,
+              description text not null
             )
           `);
           await pool.query(`
@@ -84,6 +84,8 @@ export default class Database {
 
   public async query(text: string, values?: any[]): Promise<QueryResult<any>> {
     await this.checkInitialize();
+
+    console.log(`Querying \"${text}\" with values ${values}`);  // intentional logging
 
     // TODO: Implement rate-limit
     const pool = await this._getPool();

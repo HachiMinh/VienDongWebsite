@@ -1,7 +1,7 @@
 import crypto from "crypto";
 
-import { JSONFormatError } from "../../errors";
 import { SALT_LENGTH, hashPassword } from "./login";
+import { convertString } from "../converters";
 
 export class ChangePasswordPayload {
   public readonly oldPassword: string;
@@ -24,16 +24,10 @@ export class ChangePasswordPayload {
   }
 
   public static fromJson(data: any): ChangePasswordPayload {
-    if (typeof (data.oldPassword) !== "string") {
-      throw new JSONFormatError("No \"oldPassword\" field");
-    }
-    if (typeof (data.newPassword) !== "string") {
-      throw new JSONFormatError("No \"newPassword\" field");
-    }
-    if (typeof (data.confirmNewPassword) !== "string") {
-      throw new JSONFormatError("No \"confirmNewPassword\" field");
-    }
+    const oldPassword = convertString(data.oldPassword);
+    const newPassword = convertString(data.newPassword);
+    const confirmNewPassword = convertString(data.confirmNewPassword);
 
-    return new ChangePasswordPayload(data.oldPassword, data.newPassword, data.confirmNewPassword);
+    return new ChangePasswordPayload(oldPassword, newPassword, confirmNewPassword);
   }
 }

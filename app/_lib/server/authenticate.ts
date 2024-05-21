@@ -7,7 +7,6 @@ import { LoginPayload, LoginPayloadRow } from "../types/admin/login";
 export enum AuthenticationStatus {
   SUCCESS,
   FAILURE,
-  CLIENT_ERROR,
   SERVER_ERROR,
 }
 
@@ -36,7 +35,7 @@ export default async function authenticate(request: NextRequest): Promise<Authen
     return new AuthenticationResult(AuthenticationStatus.FAILURE);
   } catch (e: any) {
     if (e instanceof HeadersFormatError) {
-      return new AuthenticationResult(AuthenticationStatus.CLIENT_ERROR);
+      return new AuthenticationResult(AuthenticationStatus.FAILURE);
     }
 
     console.error(e);

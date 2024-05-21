@@ -2,7 +2,8 @@ import { QueryResult } from "@vercel/postgres";
 import { sha256 } from "js-sha256";
 
 import Authorization from "../../client/authorization";
-import { DatabaseFormatError, HeadersFormatError, JSONFormatError } from "../../errors";
+import { HeadersFormatError } from "../../errors";
+import { convertString } from "../converters";
 
 /** The length of the salt string */
 export const SALT_LENGTH = 8;
@@ -71,14 +72,10 @@ export class LoginPayload {
    * @returns The payload as a {@link LoginPayload} object
    */
   public static fromJson(data: any): LoginPayload {
-    if (typeof (data.username) !== "string") {
-      throw new JSONFormatError("No \"username\" field");
-    }
-    if (typeof (data.password) !== "string") {
-      throw new JSONFormatError("No \"password\" field");
-    }
+    const username = convertString(data.username);
+    const password = convertString(data.password);
 
-    return new LoginPayload(data.username, data.password);
+    return new LoginPayload(username, password);
   }
 
   /**
@@ -152,14 +149,10 @@ export class LoginPayloadRow {
    * @returns A new {@link LoginPayloadRow} object
    */
   public static fromRow(data: any): LoginPayloadRow {
-    if (typeof (data.name) !== "string") {
-      throw new DatabaseFormatError("No \"name\" field");
-    }
-    if (typeof (data.password_hashed) !== "string") {
-      throw new DatabaseFormatError("No \"password_hashed\" field");
-    }
+    const name = convertString(data.name);
+    const passwordHashed = convertString(data.password_hashed);
 
-    return new LoginPayloadRow(data.name, data.password_hashed);
+    return new LoginPayloadRow(name, passwordHashed);
   }
 
   /**

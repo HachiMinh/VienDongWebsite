@@ -3,7 +3,10 @@
 import Link from "next/link";
 import React from "react";
 
-import Tour from "../../types/tourism/tours";
+import Tour, { TourData } from "../../types/tourism/tours";
+
+import "@/public/static/css/tourism/tour-info.css";
+import "@/public/static/css/tourism/tour-item.css";
 
 function slapCommasToThisNumber(number: number): string {
   const parts = number.toString().split(".");
@@ -30,28 +33,31 @@ function slapCommasToThisNumber(number: number): string {
   return result;
 }
 
-export default function TourItem({ tour }: Readonly<{ tour: Tour }>): React.JSX.Element {
+export default function TourItem({ tour }: Readonly<{ tour: Tour | TourData }>): React.JSX.Element {
+  const data = (tour instanceof TourData) ? tour : tour.data;
+  const id = (tour instanceof Tour) ? tour.id : null;
+
   return (
-    <Link className="tour-item" href={`/tourism/${tour.id}`}>
+    <Link className="tour-item" href={tour.href}>
       <div className="banner">
-        <img alt="banner" className="banner-image" src={tour.imageSrc} />
+        <img alt="banner" className="banner-image" src={data.imageSrc} />
       </div>
       <div className="tour-info">
-        <h3>{tour.title}</h3>
+        <h3>{data.title}</h3>
         <p className="tour-schedule">
           <span className="material-icons">schedule</span>
-          <b>Lịch trình: </b>{`${tour.days} ngày`}
+          <b>Lịch trình: </b>{`${data.days} ngày`}
         </p>
         <p className="tour-departure">
           <span className="material-icons">departure_board</span>
-          <b>Khởi hành: </b>{`${tour.departure.toLocaleDateString("vi-VN")}`}
+          <b>Khởi hành: </b>{`${data.departure.toLocaleDateString("vi-VN")}`}
         </p>
         <p className="tour-slots">
           <span className="material-icons">person</span>
-          <b>Số chỗ còn nhận: </b>{`${tour.slots}`}
+          <b>Số chỗ còn nhận: </b>{`${data.slots}`}
         </p>
         <span className="tour-cost">
-          {`${slapCommasToThisNumber(tour.vndCost)} đ`}
+          {`${slapCommasToThisNumber(data.vndCost)} đ`}
         </span>
       </div>
     </Link>

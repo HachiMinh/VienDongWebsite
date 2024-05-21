@@ -1,4 +1,4 @@
-import { JSONFormatError } from "../../errors";
+import { convertString } from "../converters";
 
 export class SQLQueryPayload {
   public readonly query: string;
@@ -8,10 +8,7 @@ export class SQLQueryPayload {
   }
 
   public static fromJson(data: any): SQLQueryPayload {
-    if (typeof (data.query) !== "string") {
-      throw new JSONFormatError("No \"query\" field");
-    }
-
-    return new SQLQueryPayload(data.query);
+    const query = convertString(data.query);
+    return new SQLQueryPayload(query);
   }
 }

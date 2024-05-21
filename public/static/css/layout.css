@@ -17,6 +17,17 @@
     transform: translateY(-50%);
 }
 
+.modal {
+    background-color: rgba(0, 0, 0, 0.5);
+    height: 100vh;
+    left: 0;
+    padding: 150px 50px;
+    position: fixed;
+    top: 0;
+    width: 100vw;
+    z-index: 1000;
+}
+
 body {
     --scrollbar-width: calc(100vw - 100%);
     margin: 0;

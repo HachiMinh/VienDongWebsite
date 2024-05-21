@@ -2,10 +2,9 @@ import React from "react";
 import { QueryResult } from "@vercel/postgres";
 
 import TourItem from "../../components/tourism/TourItem";
-import { DatabaseFormatError, JSONFormatError } from "../../errors";
+import { convertBoolean, convertDate, convertNumber, convertString } from "../converters";
 
-export default class Tour {
-  public readonly id: number;
+export class TourData {
   public readonly imageSrc: string;
   public readonly title: string;
   public readonly days: number;
@@ -19,7 +18,6 @@ export default class Tour {
 
   public constructor(
     data: Readonly<{
-      id: number,
       imageSrc: string,
       title: string,
       days: number,
@@ -32,7 +30,6 @@ export default class Tour {
       description: string,
     }>,
   ) {
-    this.id = data.id;
     this.imageSrc = data.imageSrc;
     this.title = data.title;
     this.days = data.days;
@@ -45,101 +42,92 @@ export default class Tour {
     this.description = data.description;
   }
 
+  public get href(): string {
+    return "/tourism";
+  }
+
+  public static fromJson(data: any): TourData {
+    const imageSrc = convertString(data.imageSrc);
+    const title = convertString(data.title);
+    const days = convertNumber(data.days);
+    const departure = convertDate(data.departure);
+    const slots = convertNumber(data.slots);
+    const vndCost = convertNumber(data.vndCost);
+    const start = convertString(data.start);
+    const destination = convertString(data.destination);
+    const international = convertBoolean(data.international);
+    const description = convertString(data.description);
+
+    return new TourData({
+      imageSrc: imageSrc,
+      title: title,
+      days: days,
+      departure: departure,
+      slots: slots,
+      vndCost: vndCost,
+      start: start,
+      destination: destination,
+      international: international,
+      description: description,
+    });
+  }
+
+  public static fromRow(data: any): TourData {
+    const imageSrc = convertString(data.image_src);
+    const title = convertString(data.title);
+    const days = convertNumber(data.days);
+    const departure = convertDate(data.departure);
+    const slots = convertNumber(data.slots);
+    const vndCost = convertNumber(data.vnd_cost);
+    const start = convertString(data.start);
+    const destination = convertString(data.destination);
+    const international = convertBoolean(data.international);
+    const description = convertString(data.description);
+
+    return new TourData({
+      imageSrc: imageSrc,
+      title: title,
+      days: days,
+      departure: departure,
+      slots: slots,
+      vndCost: vndCost,
+      start: start,
+      destination: destination,
+      international: international,
+      description: description,
+    });
+  }
+
+  public toElement(): React.JSX.Element {
+    return React.createElement(TourItem, { tour: this });
+  }
+}
+
+export default class Tour {
+  public readonly id: number;
+  public readonly data: TourData;
+
+  public constructor(id: number, data: TourData) {
+    this.id = id;
+    this.data = data;
+  }
+
+  public get href(): string {
+    return `/tourism/${this.id}`;
+  }
+
   public toElement(): React.JSX.Element {
     return React.createElement(TourItem, { key: this.id, tour: this });
   }
 
   public static fromJson(data: any): Tour {
-    if (typeof (data.id) !== "number") {
-      throw new JSONFormatError("No \"id\" field");
-    }
-    if (typeof (data.imageSrc) !== "string") {
-      throw new JSONFormatError("No \"imageSrc\" field");
-    }
-    if (typeof (data.title) !== "string") {
-      throw new JSONFormatError("No \"title\" field");
-    }
-    if (typeof (data.days) !== "number") {
-      throw new JSONFormatError("No \"days\" field");
-    }
-
-    if (typeof (data.departure) !== "string") {
-      throw new JSONFormatError("No \"departure\" field");
-    }
-    data.departure = new Date(data.departure);
-
-    if (typeof (data.slots) !== "number") {
-      throw new JSONFormatError("No \"slots\" field");
-    }
-    if (typeof (data.vndCost) !== "number") {
-      throw new JSONFormatError("No \"vndCost\" field");
-    }
-    if (typeof (data.start) !== "string") {
-      throw new JSONFormatError("No \"start\" field");
-    }
-    if (typeof (data.destination) !== "string") {
-      throw new JSONFormatError("No \"destination\" field");
-    }
-    if (typeof (data.international) !== "boolean") {
-      throw new JSONFormatError("No \"international\" field");
-    }
-    if (typeof (data.description) !== "string") {
-      throw new JSONFormatError("No \"description\" field");
-    }
-
-    return new Tour(data);
+    const id = convertNumber(data.id);
+    return new Tour(id, TourData.fromJson(data.data === undefined ? data : data.data));
   }
 
   public static fromRow(row: any): Tour {
-    if (typeof (row.id) !== "number") {
-      throw new DatabaseFormatError("No \"id\" field");
-    }
-    if (typeof (row.image_src) !== "string") {
-      throw new DatabaseFormatError("No \"image_src\" field");
-    }
-    if (typeof (row.title) !== "string") {
-      throw new DatabaseFormatError("No \"title\" field");
-    }
-    if (typeof (row.days) !== "number") {
-      throw new DatabaseFormatError("No \"days\" field");
-    }
-    if (!(row.departure instanceof Date)) {
-      throw new DatabaseFormatError("No \"departure\" field");
-    }
-    if (typeof (row.slots) !== "number") {
-      throw new DatabaseFormatError("No \"slots\" field");
-    }
-    if (typeof (row.vndCost) !== "number") {
-      throw new DatabaseFormatError("No \"vndCost\" field");
-    }
-    if (typeof (row.start) !== "string") {
-      throw new DatabaseFormatError("No \"start\" field");
-    }
-    if (typeof (row.destination) !== "string") {
-      throw new DatabaseFormatError("No \"destination\" field");
-    }
-    if (typeof (row.international) !== "boolean") {
-      throw new DatabaseFormatError("No \"international\" field");
-    }
-    if (typeof (row.description) !== "string") {
-      throw new DatabaseFormatError("No \"description\" field");
-    }
-
-    return new Tour(
-      {
-        id: row.id,
-        imageSrc: row.image_src,
-        title: row.title,
-        days: row.days,
-        departure: row.departure,
-        slots: row.slots,
-        vndCost: row.vndCost,
-        start: row.start,
-        destination: row.destination,
-        international: row.international,
-        description: row.description,
-      },
-    );
+    const id = convertNumber(row.id);
+    return new Tour(id, TourData.fromRow(row));
   }
 
   public static fromRows(rows: QueryResult<any>): Array<Tour> {

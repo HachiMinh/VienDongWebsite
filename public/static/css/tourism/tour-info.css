@@ -1,0 +1,16 @@
+.tour-info p {
+    font-size: 14px;
+    margin: 5px 0;
+    white-space: pre-wrap;
+    width: 100%;
+}
+
+.tour-info p .material-icons {
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+.tour-info .tour-cost {
+    color: red;
+    float: inline-end;
+}

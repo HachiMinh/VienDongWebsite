@@ -8,11 +8,11 @@ export class BaseException extends Error {
   }
 }
 
-export class DatabaseFormatError extends BaseException {
+export class ConversionError extends BaseException {
   constructor(message: string) {
     super(message);
 
-    Object.setPrototypeOf(this, DatabaseFormatError.prototype);
+    Object.setPrototypeOf(this, ConversionError.prototype);
   }
 }
 
@@ -23,12 +23,3 @@ export class HeadersFormatError extends BaseException {
     Object.setPrototypeOf(this, HeadersFormatError.prototype);
   }
 }
-
-export class JSONFormatError extends BaseException {
-  constructor(message: string) {
-    super(message);
-
-    Object.setPrototypeOf(this, JSONFormatError.prototype);
-  }
-}
-

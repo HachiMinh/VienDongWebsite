@@ -1,9 +1,9 @@
 import { NextRequest, NextResponse } from "next/server";
 
-import authenticate, { AuthenticationStatus } from "@/app/_lib/server/authenticate";
 import Database from "@/app/_lib/server/database";
+import authenticate, { AuthenticationStatus } from "@/app/_lib/server/authenticate";
 import { ChangePasswordPayload } from "@/app/_lib/types/admin/password";
-import { JSONFormatError } from "@/app/_lib/errors";
+import { ConversionError } from "@/app/_lib/errors";
 import { HTTPBadRequest, HTTPForbidden, HTTPInternalServerError, HTTPOK } from "@/app/_lib/types/responses";
 
 export async function POST(request: NextRequest): Promise<NextResponse> {
@@ -19,7 +19,7 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
 
         return new HTTPForbidden();
       } catch (e: any) {
-        if (e instanceof JSONFormatError) {
+        if (e instanceof ConversionError) {
           return new HTTPBadRequest();
         }
 
@@ -28,8 +28,6 @@ export async function POST(request: NextRequest): Promise<NextResponse> {
       }
     case AuthenticationStatus.FAILURE:
       return new HTTPForbidden();
-    case AuthenticationStatus.CLIENT_ERROR:
-      return new HTTPBadRequest();
     case AuthenticationStatus.SERVER_ERROR:
       return new HTTPInternalServerError();
   }
