@@ -35,12 +35,7 @@ function MenuList({
       </Link>
       <Link href="/tourism" onClick={callback}>
         <li>
-          <span className={spanClassName}>Du lịch</span>
-        </li>
-      </Link>
-      <Link href="/transportation" onClick={callback}>
-        <li>
-          <span className={spanClassName}>Vận tải</span>
+          <span className={spanClassName}>Vé máy bay - Du lịch</span>
         </li>
       </Link>
       <Link href="/about" onClick={callback}>
@@ -76,7 +71,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <div id="main-header">
           <div className="upper">
             <div className="hotline">
-              <span>Hotline: <strong>1900xxxx</strong></span>
+              <span>Zalo: <strong>0862.590.591</strong></span>
             </div>
             <div className="menu">
               <ul className="navigator-menu">
@@ -116,8 +111,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         </div>
         <div id="copyright-footer">
           <div className="flex-left">
-            <p>© 2021-2024 Công ty Cổ phần Viễn Đông Central</p>
-            <p>Giám đốc: Nguyễn Huy Liêm</p>
+            <p>© 2021-2024 CÔNG TY CỔ PHẦN VIỄN ĐÔNG CENTRAL</p>
             <p>SĐT: 0862590591</p>
             <p>MST: 0109495463</p>
             <p>

@@ -16,12 +16,10 @@ function SectionsContent(
     href,
     icon,
     title,
-    subtitle,
   }: Readonly<{
     href: string,
     icon: string,
     title: string,
-    subtitle: string,
   }>): React.JSX.Element {
   return (
     <Link className="content" href={href}>
@@ -30,7 +28,6 @@ function SectionsContent(
       </div>
       <div className="text horizontal-center">
         <div className="t1">{title}</div>
-        <div className="t2">{subtitle}</div>
       </div>
     </Link>
   );
@@ -44,29 +41,25 @@ export default function Home(): React.JSX.Element {
           <SectionsContent
             href="/construction"
             icon="handyman"
-            title="Dịch vụ"
-            subtitle="XÂY DỰNG" />
+            title="XÂY DỰNG" />
         </div>
         <div className="sections-1-b">
           <SectionsContent
             href="/commercial"
             icon="conveyor_belt"
-            title="Dịch vụ"
-            subtitle="THƯƠNG MẠI" />
+            title="THƯƠNG MẠI" />
         </div>
         <div className="sections-1-c">
           <SectionsContent
             href="/tourism"
             icon="flight_takeoff"
-            title="Dịch vụ"
-            subtitle="DU LỊCH" />
+            title="VÉ MÁY BAY - DU&nbsp;LỊCH" />
         </div>
         <div className="sections-1-d">
           <SectionsContent
             href="/transportation"
-            icon="local_shipping"
-            title="Dịch vụ"
-            subtitle="VẬN TẢI" />
+            icon="description"
+            title="VỀ CHÚNG TÔI" />
         </div>
       </div>
 
@@ -76,11 +69,11 @@ export default function Home(): React.JSX.Element {
 
       <div className="company intro-container">
         <div className={`header ${varelaRound.className}`}>
-          <h1 className="horizontal-center">Công ty Viễn Đông</h1>
+          <h1 className="horizontal-center">Công ty Viễn&nbsp;Đông</h1>
         </div>
         <div className="content">
           <p>
-            <b>Công ty Viễn Đông</b> là công ty hoạt động đa ngành, chuyên cung cấp các
+            <b>Công ty Viễn&nbsp;Đông</b> là công ty hoạt động đa ngành, chuyên cung cấp các
             sản phẩm và dịch vụ chất lượng cao cho khách hàng trong nhiều lĩnh vực khác nhau.
             Sứ mệnh của chúng tôi là mang đến cho khách hàng những trải nghiệm tốt nhất
             thông qua các sản phẩm và dịch vụ được đầu tư kỹ lưỡng, đáp ứng mọi nhu cầu của khách hàng.
