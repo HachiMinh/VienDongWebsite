@@ -1,0 +1,42 @@
+#home-carousel {
+    height: 600px;
+}
+
+#home-carousel .carousel-inner {
+    height: 100%;
+}
+
+#home-carousel .carousel-inner .carousel-item {
+    background-size: cover;
+    height: 100%;
+}
+
+#home-carousel .carousel-inner .carousel-item:nth-child(1) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/static/images/commercial-mobile.jpg);
+}
+
+#home-carousel .carousel-inner .carousel-item:nth-child(2) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/static/images/tourism-mobile.jpg);
+}
+
+#home-carousel .carousel-inner .carousel-item:nth-child(3) {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/static/images/construction-mobile.jpg);
+}
+
+#home-carousel .carousel-inner .carousel-item .carousel-caption {
+    text-align: left;
+}
+
+@media screen and (min-width: 768px) {
+    #home-carousel .carousel-inner .carousel-item:nth-child(1) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/static/images/commercial-desktop.jpg);
+    }
+
+    #home-carousel .carousel-inner .carousel-item:nth-child(2) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/static/images/tourism-desktop.jpg);
+    }
+
+    #home-carousel .carousel-inner .carousel-item:nth-child(3) {
+        background-image: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url(/static/images/construction-desktop.jpg);
+    }
+}

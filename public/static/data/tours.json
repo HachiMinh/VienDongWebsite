@@ -1,0 +1,15 @@
+[
+    {
+        "id": "tour123",
+        "imageSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR02DiX9wZMkRcUP1NtYJnuOuyuIBngerggUQ&s",
+        "title": "Amazing Tour",
+        "days": 7,
+        "departure": "2022-10-01",
+        "slots": 10,
+        "vndCost": 5000000,
+        "start": "Hanoi",
+        "destination": "Ho Chi Minh City",
+        "international": false,
+        "description": "Join us on this amazing tour to explore the beauty of Vietnam!"
+    }
+]

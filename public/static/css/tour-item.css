@@ -1,0 +1,22 @@
+.tour-item {
+    display: block;
+    font-size: 14px;
+    text-decoration: none;
+    width: 230px;
+}
+
+.tour-item .card .card-body .card-title {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.tour-item span.material-icons {
+    font-size: inherit;
+    margin-right: 5px;
+}
+
+@media screen and (min-width: 768px) {
+    .tour-item {
+        width: 260px;
+    }
+}

@@ -9,11 +9,10 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@vercel/postgres": "^0.8.0",
-    "async-mutex": "^0.5.0",
-    "js-sha256": "^0.11.0",
+    "bootstrap": "^5.3.3",
     "next": "14.2.3",
     "react": "^18",
+    "react-bootstrap": "^2.10.4",
     "react-dom": "^18"
   },
   "devDependencies": {

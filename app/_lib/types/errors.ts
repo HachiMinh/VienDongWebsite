@@ -15,11 +15,3 @@ export class ConversionError extends BaseException {
     Object.setPrototypeOf(this, ConversionError.prototype);
   }
 }
-
-export class HeadersFormatError extends BaseException {
-  constructor(message: string) {
-    super(message);
-
-    Object.setPrototypeOf(this, HeadersFormatError.prototype);
-  }
-}

@@ -1,4 +1,4 @@
-import { ConversionError } from "../errors";
+import { ConversionError } from "./errors";
 
 export function convertBoolean(value: any): boolean {
   if (typeof value === "string") {
