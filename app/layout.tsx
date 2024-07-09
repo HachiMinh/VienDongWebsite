@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Script from "next/script";
 import React from "react";
 import { Container, Image, Nav, Navbar, Offcanvas, Row, Stack } from "react-bootstrap";
 import { Open_Sans } from "next/font/google";
@@ -22,9 +23,9 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <meta name="description" content="Công ty Cổ phần Viễn Đông Central" />
         <meta name="author" content="Nguyen Huy Liem" />
         <meta content="width=device-width, initial-scale=1.0" name="viewport" />
-        <script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin=""></script>
-        <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossOrigin=""></script>
-        <script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossOrigin=""></script>
+        <Script src="https://cdn.jsdelivr.net/npm/react/umd/react.production.min.js" crossOrigin="" />
+        <Script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.production.min.js" crossOrigin="" />
+        <Script src="https://cdn.jsdelivr.net/npm/react-bootstrap@next/dist/react-bootstrap.min.js" crossOrigin="" />
         <script>var Alert = ReactBootstrap.Alert;</script>
         <link
           rel="stylesheet"

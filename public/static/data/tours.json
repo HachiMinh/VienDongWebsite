@@ -2,11 +2,11 @@
     {
         "id": "tour123",
         "imageSrc": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR02DiX9wZMkRcUP1NtYJnuOuyuIBngerggUQ&s",
-        "title": "Amazing Tour",
+        "title": "Sample tour",
         "days": 7,
         "departure": "2022-10-01",
         "slots": 10,
-        "vndCost": 5000000,
+        "vndCost": 500000000,
         "start": "Hanoi",
         "destination": "Ho Chi Minh City",
         "international": false,
